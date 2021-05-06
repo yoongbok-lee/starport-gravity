@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/cmd/gravity/cmd"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/cmd/gravityd/cmd"
 	"github.com/cosmos/cosmos-sdk/server"
 )
 

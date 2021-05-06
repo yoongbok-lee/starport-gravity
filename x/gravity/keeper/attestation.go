@@ -7,7 +7,7 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 // TODO-JT: carefully look at atomicity of this function

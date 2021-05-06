@@ -14,7 +14,7 @@ import (
 	ethCrypto "github.com/ethereum/go-ethereum/crypto"
 	"github.com/spf13/cobra"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 func GetTxCmd(storeKey string) *cobra.Command {
@@ -31,6 +31,7 @@ func GetTxCmd(storeKey string) *cobra.Command {
 		CmdRequestBatch(),
 		CmdSetOrchestratorAddress(),
 		GetUnsafeTestingCmd(),
+		CmdCreateOrchestratorAddress(),
 	}...)
 
 	return gravityTxCmd

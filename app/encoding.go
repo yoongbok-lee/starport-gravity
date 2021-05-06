@@ -1,7 +1,7 @@
 package app
 
 import (
-	gravityparams "github.com/althea-net/cosmos-gravity-bridge/module/app/params"
+	gravityparams "github.com/althea-net/cosmos-gravity-bridge/gravity/app/params"
 	"github.com/cosmos/cosmos-sdk/std"
 )
 

@@ -2,12 +2,13 @@ syntax = "proto3";
 package gravity.v1;
 
 import "gogoproto/gogo.proto";
-import "gravity/v1/types.proto";
-import "gravity/v1/msgs.proto";
-import "gravity/v1/batch.proto";
-import "gravity/v1/attestation.proto";
+import "gravity/types.proto";
+import "gravity/msgs.proto";
+import "gravity/batch.proto";
+import "gravity/attestation.proto";
+import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types";
+option go_package = "github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types";
 
 // Params represent the Gravity genesis and store parameters
 // gravity_id:
@@ -113,6 +114,6 @@ message GenesisState {
   repeated MsgConfirmLogicCall       logic_call_confirms = 8 [(gogoproto.nullable) = false];
   repeated Attestation               attestations        = 9 [(gogoproto.nullable) = false];
   repeated MsgSetOrchestratorAddress delegate_keys       = 10;
-  repeated ERC20ToDenom              erc20_to_denoms     = 11;
+  repeated Erc20ToDenom              erc20_to_denoms     = 11;
   repeated OutgoingTransferTx        unbatched_transfers = 12;
 }

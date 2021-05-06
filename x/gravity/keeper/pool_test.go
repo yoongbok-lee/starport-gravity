@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 func TestAddToOutgoingPool(t *testing.T) {
@@ -20,7 +20,7 @@ func TestAddToOutgoingPool(t *testing.T) {
 		myTokenContractAddr = "0x429881672B9AE42b8EbA0E26cD9C73711b891Ca5"
 	)
 	// mint some voucher first
-	allVouchers := sdk.Coins{types.NewERC20Token(99999, myTokenContractAddr).GravityCoin()}
+	allVouchers := sdk.Coins{types.NewErc20Token(99999, myTokenContractAddr).GravityCoin()}
 	err := input.BankKeeper.MintCoins(ctx, types.ModuleName, allVouchers)
 	require.NoError(t, err)
 
@@ -31,8 +31,8 @@ func TestAddToOutgoingPool(t *testing.T) {
 
 	// when
 	for i, v := range []uint64{2, 3, 2, 1} {
-		amount := types.NewERC20Token(uint64(i+100), myTokenContractAddr).GravityCoin()
-		fee := types.NewERC20Token(v, myTokenContractAddr).GravityCoin()
+		amount := types.NewErc20Token(uint64(i+100), myTokenContractAddr).GravityCoin()
+		fee := types.NewErc20Token(v, myTokenContractAddr).GravityCoin()
 		r, err := input.GravityKeeper.AddToOutgoingPool(ctx, mySender, myReceiver, amount, fee)
 		require.NoError(t, err)
 		t.Logf("___ response: %#v", r)
@@ -46,31 +46,31 @@ func TestAddToOutgoingPool(t *testing.T) {
 	exp := []*types.OutgoingTransferTx{
 		{
 			Id:          2,
-			Erc20Fee:    types.NewERC20Token(3, myTokenContractAddr),
+			Erc20Fee:    types.NewErc20Token(3, myTokenContractAddr),
 			Sender:      mySender.String(),
 			DestAddress: myReceiver,
-			Erc20Token:  types.NewERC20Token(101, myTokenContractAddr),
+			Erc20Token:  types.NewErc20Token(101, myTokenContractAddr),
 		},
 		{
 			Id:          1,
-			Erc20Fee:    types.NewERC20Token(2, myTokenContractAddr),
+			Erc20Fee:    types.NewErc20Token(2, myTokenContractAddr),
 			Sender:      mySender.String(),
 			DestAddress: myReceiver,
-			Erc20Token:  types.NewERC20Token(100, myTokenContractAddr),
+			Erc20Token:  types.NewErc20Token(100, myTokenContractAddr),
 		},
 		{
 			Id:          3,
-			Erc20Fee:    types.NewERC20Token(2, myTokenContractAddr),
+			Erc20Fee:    types.NewErc20Token(2, myTokenContractAddr),
 			Sender:      mySender.String(),
 			DestAddress: myReceiver,
-			Erc20Token:  types.NewERC20Token(102, myTokenContractAddr),
+			Erc20Token:  types.NewErc20Token(102, myTokenContractAddr),
 		},
 		{
 			Id:          4,
-			Erc20Fee:    types.NewERC20Token(1, myTokenContractAddr),
+			Erc20Fee:    types.NewErc20Token(1, myTokenContractAddr),
 			Sender:      mySender.String(),
 			DestAddress: myReceiver,
-			Erc20Token:  types.NewERC20Token(103, myTokenContractAddr),
+			Erc20Token:  types.NewErc20Token(103, myTokenContractAddr),
 		},
 	}
 	assert.Equal(t, exp, got)
@@ -87,7 +87,7 @@ func TestTotalBatchFeeInPool(t *testing.T) {
 		myTokenContractAddr = "0x429881672B9AE42b8EbA0E26cD9C73711b891Ca5"
 	)
 	// mint some voucher first
-	allVouchers := sdk.Coins{types.NewERC20Token(99999, myTokenContractAddr).GravityCoin()}
+	allVouchers := sdk.Coins{types.NewErc20Token(99999, myTokenContractAddr).GravityCoin()}
 	err := input.BankKeeper.MintCoins(ctx, types.ModuleName, allVouchers)
 	require.NoError(t, err)
 
@@ -98,8 +98,8 @@ func TestTotalBatchFeeInPool(t *testing.T) {
 
 	// create outgoing pool
 	for i, v := range []uint64{2, 3, 2, 1} {
-		amount := types.NewERC20Token(uint64(i+100), myTokenContractAddr).GravityCoin()
-		fee := types.NewERC20Token(v, myTokenContractAddr).GravityCoin()
+		amount := types.NewErc20Token(uint64(i+100), myTokenContractAddr).GravityCoin()
+		fee := types.NewErc20Token(v, myTokenContractAddr).GravityCoin()
 		r, err2 := input.GravityKeeper.AddToOutgoingPool(ctx, mySender, myReceiver, amount, fee)
 		require.NoError(t, err2)
 		t.Logf("___ response: %#v", r)
@@ -110,7 +110,7 @@ func TestTotalBatchFeeInPool(t *testing.T) {
 		myToken2ContractAddr = "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0"
 	)
 	// mint some voucher first
-	allVouchers = sdk.Coins{types.NewERC20Token(18446744073709551615, myToken2ContractAddr).GravityCoin()}
+	allVouchers = sdk.Coins{types.NewErc20Token(18446744073709551615, myToken2ContractAddr).GravityCoin()}
 	err = input.BankKeeper.MintCoins(ctx, types.ModuleName, allVouchers)
 	require.NoError(t, err)
 
@@ -123,8 +123,8 @@ func TestTotalBatchFeeInPool(t *testing.T) {
 
 	// create outgoing pool
 	for i := 0; i < 110; i++ {
-		amount := types.NewERC20Token(uint64(i+100), myToken2ContractAddr).GravityCoin()
-		fee := types.NewERC20Token(uint64(5), myToken2ContractAddr).GravityCoin()
+		amount := types.NewErc20Token(uint64(i+100), myToken2ContractAddr).GravityCoin()
+		fee := types.NewErc20Token(uint64(5), myToken2ContractAddr).GravityCoin()
 		r, err := input.GravityKeeper.AddToOutgoingPool(ctx, mySender, myReceiver, amount, fee)
 		require.NoError(t, err)
 		t.Logf("___ response: %#v", r)

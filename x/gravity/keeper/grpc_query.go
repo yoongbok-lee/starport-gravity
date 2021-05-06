@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 var _ types.QueryServer = Keeper{}
@@ -17,6 +17,16 @@ func (k Keeper) Params(c context.Context, req *types.QueryParamsRequest) (*types
 	k.paramSpace.GetParamSet(sdk.UnwrapSDKContext(c), &params)
 	return &types.QueryParamsResponse{Params: params}, nil
 
+}
+
+func (k Keeper) OrchestratorAddressAll(ctx context.Context, all *types.QueryAllOrchestratorAddress) (*types.QueryCurrentValsetResponse, error) {
+	return &types.QueryCurrentValsetResponse{Valset: k.GetCurrentValset(sdk.UnwrapSDKContext(ctx))}, nil
+}
+
+func (k Keeper) CosmosToEthAll(ctx context.Context, eth *types.QueryAllCosmosToEth) (*types.QueryPendingSendToEthResponse, error) {
+	return k.GetPendingSendToEth(ctx, &types.QueryPendingSendToEth{
+		SenderAddress: eth.SenderAddress,
+	})
 }
 
 // CurrentValset queries the CurrentValset of the gravity module
@@ -235,26 +245,26 @@ func (k Keeper) LastEventNonceByAddr(
 	return &ret, nil
 }
 
-// DenomToERC20 queries the Cosmos Denom that maps to an Ethereum ERC20
-func (k Keeper) DenomToERC20(
+// DenomToErc20 queries the Cosmos Denom that maps to an Ethereum Erc20
+func (k Keeper) DenomToErc20(
 	c context.Context,
-	req *types.QueryDenomToERC20Request) (*types.QueryDenomToERC20Response, error) {
+	req *types.QueryDenomToErc20Request) (*types.QueryDenomToErc20Response, error) {
 	ctx := sdk.UnwrapSDKContext(c)
-	cosmosOriginated, erc20, err := k.DenomToERC20Lookup(ctx, req.Denom)
-	var ret types.QueryDenomToERC20Response
+	cosmosOriginated, erc20, err := k.DenomToErc20Lookup(ctx, req.Denom)
+	var ret types.QueryDenomToErc20Response
 	ret.Erc20 = erc20
 	ret.CosmosOriginated = cosmosOriginated
 
 	return &ret, err
 }
 
-// ERC20ToDenom queries the ERC20 contract that maps to an Ethereum ERC20 if any
-func (k Keeper) ERC20ToDenom(
+// Erc20ToDenom queries the Erc20 contract that maps to an Ethereum Erc20 if any
+func (k Keeper) Erc20ToDenom(
 	c context.Context,
-	req *types.QueryERC20ToDenomRequest) (*types.QueryERC20ToDenomResponse, error) {
+	req *types.QueryErc20ToDenomRequest) (*types.QueryErc20ToDenomResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
-	cosmosOriginated, name := k.ERC20ToDenomLookup(ctx, req.Erc20)
-	var ret types.QueryERC20ToDenomResponse
+	cosmosOriginated, name := k.Erc20ToDenomLookup(ctx, req.Erc20)
+	var ret types.QueryErc20ToDenomResponse
 	ret.Denom = name
 	ret.CosmosOriginated = cosmosOriginated
 

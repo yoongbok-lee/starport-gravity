@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/rest"
 	"github.com/gorilla/mux"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 func getValsetRequestHandler(cliCtx client.Context, storeName string) http.HandlerFunc {
@@ -185,12 +185,12 @@ func currentValsetHandler(cliCtx client.Context, storeName string) http.HandlerF
 	}
 }
 
-func denomToERC20Handler(cliCtx client.Context, storeName string) http.HandlerFunc {
+func denomToErc20Handler(cliCtx client.Context, storeName string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
 		denom := vars[denom]
 
-		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/DenomToERC20/%s", storeName, denom))
+		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/DenomToErc20/%s", storeName, denom))
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusInternalServerError, err.Error())
 			return
@@ -199,12 +199,12 @@ func denomToERC20Handler(cliCtx client.Context, storeName string) http.HandlerFu
 	}
 }
 
-func ERC20ToDenomHandler(cliCtx client.Context, storeName string) http.HandlerFunc {
+func Erc20ToDenomHandler(cliCtx client.Context, storeName string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
-		ERC20 := vars[tokenAddress]
+		Erc20 := vars[tokenAddress]
 
-		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/ERC20ToDenom/%s", storeName, ERC20))
+		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/Erc20ToDenom/%s", storeName, Erc20))
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusInternalServerError, err.Error())
 			return

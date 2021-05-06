@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 // InitGenesis starts a chain from a genesis state
@@ -116,7 +116,7 @@ func InitGenesis(ctx sdk.Context, k Keeper, data types.GenesisState) {
 
 	// populate state with cosmos originated denom-erc20 mapping
 	for _, item := range data.Erc20ToDenoms {
-		k.setCosmosOriginatedDenomToERC20(ctx, item.Denom, item.Erc20)
+		k.setCosmosOriginatedDenomToErc20(ctx, item.Denom, item.Erc20)
 	}
 }
 
@@ -135,7 +135,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 		attestations       = []types.Attestation{}
 		delegates          = k.GetDelegateKeys(ctx)
 		lastobserved       = k.GetLastObservedEventNonce(ctx)
-		erc20ToDenoms      = []*types.ERC20ToDenom{}
+		erc20ToDenoms      = []*types.Erc20ToDenom{}
 		unbatchedTransfers = k.GetPoolTransactions(ctx)
 	)
 
@@ -166,7 +166,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 	}
 
 	// export erc20 to denom relations
-	k.IterateERC20ToDenom(ctx, func(key []byte, erc20ToDenom *types.ERC20ToDenom) bool {
+	k.IterateErc20ToDenom(ctx, func(key []byte, erc20ToDenom *types.Erc20ToDenom) bool {
 		erc20ToDenoms = append(erc20ToDenoms, erc20ToDenom)
 		return false
 	})

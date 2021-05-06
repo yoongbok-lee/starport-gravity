@@ -16,7 +16,7 @@ var (
 	_ sdk.Msg = &MsgCancelSendToEth{}
 	_ sdk.Msg = &MsgRequestBatch{}
 	_ sdk.Msg = &MsgConfirmBatch{}
-	_ sdk.Msg = &MsgERC20DeployedClaim{}
+	_ sdk.Msg = &MsgErc20DeployedClaim{}
 	_ sdk.Msg = &MsgConfirmLogicCall{}
 	_ sdk.Msg = &MsgLogicCallExecutedClaim{}
 	_ sdk.Msg = &MsgDepositClaim{}
@@ -309,7 +309,7 @@ type EthereumClaim interface {
 var (
 	_ EthereumClaim = &MsgDepositClaim{}
 	_ EthereumClaim = &MsgWithdrawClaim{}
-	_ EthereumClaim = &MsgERC20DeployedClaim{}
+	_ EthereumClaim = &MsgErc20DeployedClaim{}
 	_ EthereumClaim = &MsgLogicCallExecutedClaim{}
 )
 
@@ -445,16 +445,16 @@ const (
 	TypeMsgDepositClaim = "deposit_claim"
 )
 
-// EthereumClaim implementation for MsgERC20DeployedClaim
+// EthereumClaim implementation for MsgErc20DeployedClaim
 // ======================================================
 
 // GetType returns the type of the claim
-func (e *MsgERC20DeployedClaim) GetType() ClaimType {
-	return CLAIM_TYPE_ERC20_DEPLOYED
+func (e *MsgErc20DeployedClaim) GetType() ClaimType {
+	return CLAIM_TYPE_Erc20_DEPLOYED
 }
 
 // ValidateBasic performs stateless checks
-func (e *MsgERC20DeployedClaim) ValidateBasic() error {
+func (e *MsgErc20DeployedClaim) ValidateBasic() error {
 	if err := ValidateEthAddress(e.TokenContract); err != nil {
 		return sdkerrors.Wrap(err, "erc20 token")
 	}
@@ -468,14 +468,14 @@ func (e *MsgERC20DeployedClaim) ValidateBasic() error {
 }
 
 // GetSignBytes encodes the message for signing
-func (msg MsgERC20DeployedClaim) GetSignBytes() []byte {
+func (msg MsgErc20DeployedClaim) GetSignBytes() []byte {
 	return sdk.MustSortJSON(ModuleCdc.MustMarshalJSON(msg))
 }
 
-func (msg MsgERC20DeployedClaim) GetClaimer() sdk.AccAddress {
+func (msg MsgErc20DeployedClaim) GetClaimer() sdk.AccAddress {
 	err := msg.ValidateBasic()
 	if err != nil {
-		panic("MsgERC20DeployedClaim failed ValidateBasic! Should have been handled earlier")
+		panic("MsgErc20DeployedClaim failed ValidateBasic! Should have been handled earlier")
 	}
 
 	val, _ := sdk.AccAddressFromBech32(msg.Orchestrator)
@@ -483,7 +483,7 @@ func (msg MsgERC20DeployedClaim) GetClaimer() sdk.AccAddress {
 }
 
 // GetSigners defines whose signature is required
-func (msg MsgERC20DeployedClaim) GetSigners() []sdk.AccAddress {
+func (msg MsgErc20DeployedClaim) GetSigners() []sdk.AccAddress {
 	acc, err := sdk.AccAddressFromBech32(msg.Orchestrator)
 	if err != nil {
 		panic(err)
@@ -493,13 +493,13 @@ func (msg MsgERC20DeployedClaim) GetSigners() []sdk.AccAddress {
 }
 
 // Type should return the action
-func (msg MsgERC20DeployedClaim) Type() string { return "ERC20_deployed_claim" }
+func (msg MsgErc20DeployedClaim) Type() string { return "Erc20_deployed_claim" }
 
 // Route should return the name of the module
-func (msg MsgERC20DeployedClaim) Route() string { return RouterKey }
+func (msg MsgErc20DeployedClaim) Route() string { return RouterKey }
 
 // Hash implements BridgeDeposit.Hash
-func (b *MsgERC20DeployedClaim) ClaimHash() []byte {
+func (b *MsgErc20DeployedClaim) ClaimHash() []byte {
 	path := fmt.Sprintf("%s/%s/%s/%s/%d/", b.CosmosDenom, b.TokenContract, b.Name, b.Symbol, b.Decimals)
 	return tmhash.Sum([]byte(path))
 }
@@ -531,7 +531,7 @@ func (msg MsgLogicCallExecutedClaim) GetSignBytes() []byte {
 func (msg MsgLogicCallExecutedClaim) GetClaimer() sdk.AccAddress {
 	err := msg.ValidateBasic()
 	if err != nil {
-		panic("MsgERC20DeployedClaim failed ValidateBasic! Should have been handled earlier")
+		panic("MsgErc20DeployedClaim failed ValidateBasic! Should have been handled earlier")
 	}
 
 	val, _ := sdk.AccAddressFromBech32(msg.Orchestrator)
@@ -587,7 +587,7 @@ func (msg MsgValsetUpdatedClaim) GetSignBytes() []byte {
 func (msg MsgValsetUpdatedClaim) GetClaimer() sdk.AccAddress {
 	err := msg.ValidateBasic()
 	if err != nil {
-		panic("MsgERC20DeployedClaim failed ValidateBasic! Should have been handled earlier")
+		panic("MsgErc20DeployedClaim failed ValidateBasic! Should have been handled earlier")
 	}
 
 	val, _ := sdk.AccAddressFromBech32(msg.Orchestrator)

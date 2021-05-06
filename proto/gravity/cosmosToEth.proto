@@ -1,0 +1,34 @@
+syntax = "proto3";
+package gravity.v1;
+
+option go_package = "github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types";
+
+import "gogoproto/gogo.proto";
+
+message CosmosToEth {
+  string sender = 3; 
+  string ethDest = 4; 
+  string amount = 5; 
+  string bridgeFee = 6; 
+}
+
+message MsgCreateCosmosToEth {
+  string sender = 2; 
+  string ethDest = 3; 
+  string amount = 4; 
+  string bridgeFee = 5; 
+}
+
+message MsgUpdateCosmosToEth {
+  string creator = 1;
+  uint64 id = 2;
+  string sender = 3; 
+  string ethDest = 4; 
+  string amount = 5; 
+  string bridgeFee = 6; 
+}
+
+message MsgDeleteCosmosToEth {
+  string creator = 1;
+  uint64 id = 2;
+}

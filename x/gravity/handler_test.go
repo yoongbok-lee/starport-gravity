@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/keeper"
-	"github.com/althea-net/cosmos-gravity-bridge/module/x/gravity/types"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/keeper"
+	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
 func TestHandleMsgSendToEth(t *testing.T) {
@@ -93,7 +93,7 @@ func TestMsgDepositClaimSingleValidator(t *testing.T) {
 	input.GravityKeeper.SetOrchestratorValidator(ctx, myValAddr, myOrchestratorAddr)
 	h := NewHandler(input.GravityKeeper)
 
-	myErc20 := types.ERC20Token{
+	myErc20 := types.Erc20Token{
 		Amount:   amountA,
 		Contract: tokenETHAddr,
 	}
@@ -192,7 +192,7 @@ func TestMsgDepositClaimsMultiValidator(t *testing.T) {
 	input.GravityKeeper.SetOrchestratorValidator(ctx, valAddr3, orchestratorAddr3)
 	h := NewHandler(input.GravityKeeper)
 
-	myErc20 := types.ERC20Token{
+	myErc20 := types.Erc20Token{
 		Amount:   sdk.NewInt(12),
 		Contract: tokenETHAddr,
 	}
