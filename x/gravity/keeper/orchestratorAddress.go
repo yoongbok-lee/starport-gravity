@@ -42,7 +42,6 @@ func (k Keeper) CreateOrchestratorAddress(ctx sdk.Context, msg types.MsgCreateOr
 	valAddr, _ := sdk.ValAddressFromBech32(msg.Validator)
 	orch, _ := sdk.AccAddressFromBech32(msg.Orchestrator)
 	k.SetOrchestratorValidator(ctx, valAddr, orch)
-	k.SetEthAddressForValidator(ctx, valAddr, msg.EthAddress)
 }
 
 // GetOrchestratorAddress returns a orchestratorAddress from its id

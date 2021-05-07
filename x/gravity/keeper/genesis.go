@@ -115,8 +115,8 @@ func InitGenesis(ctx sdk.Context, k Keeper, data types.GenesisState) {
 	}
 
 	// populate state with cosmos originated denom-erc20 mapping
-	for _, item := range data.Erc20ToDenoms {
-		k.setCosmosOriginatedDenomToErc20(ctx, item.Denom, item.Erc20)
+	for _, item := range data.ERC20ToDenoms {
+		k.setCosmosOriginatedDenomToERC20(ctx, item.Denom, item.ERC20)
 	}
 }
 
@@ -135,7 +135,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 		attestations       = []types.Attestation{}
 		delegates          = k.GetDelegateKeys(ctx)
 		lastobserved       = k.GetLastObservedEventNonce(ctx)
-		erc20ToDenoms      = []*types.Erc20ToDenom{}
+		erc20ToDenoms      = []*types.ERC20ToDenom{}
 		unbatchedTransfers = k.GetPoolTransactions(ctx)
 	)
 
@@ -166,7 +166,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 	}
 
 	// export erc20 to denom relations
-	k.IterateErc20ToDenom(ctx, func(key []byte, erc20ToDenom *types.Erc20ToDenom) bool {
+	k.IterateERC20ToDenom(ctx, func(key []byte, erc20ToDenom *types.ERC20ToDenom) bool {
 		erc20ToDenoms = append(erc20ToDenoms, erc20ToDenom)
 		return false
 	})
@@ -182,7 +182,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 		LogicCallConfirms:  callconfs,
 		Attestations:       attestations,
 		DelegateKeys:       delegates,
-		Erc20ToDenoms:      erc20ToDenoms,
+		ERC20ToDenoms:      erc20ToDenoms,
 		UnbatchedTransfers: unbatchedTransfers,
 	}
 }

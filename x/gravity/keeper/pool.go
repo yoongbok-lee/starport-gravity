@@ -23,10 +23,10 @@ func (k Keeper) AddToOutgoingPool(ctx sdk.Context, sender sdk.AccAddress, counte
 	totalAmount := amount.Add(fee)
 	totalInVouchers := sdk.Coins{totalAmount}
 
-	// If the coin is a gravity voucher, burn the coins. If not, check if there is a deployed Erc20 contract representing it.
+	// If the coin is a gravity voucher, burn the coins. If not, check if there is a deployed ERC20 contract representing it.
 	// If there is, lock the coins.
 
-	isCosmosOriginated, tokenContract, err := k.DenomToErc20Lookup(ctx, totalAmount.Denom)
+	isCosmosOriginated, tokenContract, err := k.DenomToERC20Lookup(ctx, totalAmount.Denom)
 	if err != nil {
 		return 0, err
 	}
@@ -53,17 +53,17 @@ func (k Keeper) AddToOutgoingPool(ctx sdk.Context, sender sdk.AccAddress, counte
 	// get next tx id from keeper
 	nextID := k.autoIncrementID(ctx, types.KeyLastTXPoolID)
 
-	erc20Fee := types.NewSDKIntErc20Token(fee.Amount, tokenContract)
+	erc20Fee := types.NewSDKIntERC20Token(fee.Amount, tokenContract)
 
 	// construct outgoing tx, as part of this process we represent
-	// the token as an Erc20 token since it is preparing to go to ETH
+	// the token as an ERC20 token since it is preparing to go to ETH
 	// rather than the denom that is the input to this function.
 	outgoing := &types.OutgoingTransferTx{
 		Id:          nextID,
 		Sender:      sender.String(),
 		DestAddress: counterpartReceiver,
-		Erc20Token:  types.NewSDKIntErc20Token(amount.Amount, tokenContract),
-		Erc20Fee:    erc20Fee,
+		ERC20Token:  types.NewSDKIntERC20Token(amount.Amount, tokenContract),
+		ERC20Fee:    erc20Fee,
 	}
 
 	// set the outgoing tx in the pool index
@@ -124,21 +124,21 @@ func (k Keeper) RemoveFromOutgoingPoolAndRefund(ctx sdk.Context, txId uint64, se
 
 	// An inconsistent entry should never enter the store, but this is the ideal place to exploit
 	// it such a bug if it did ever occur, so we should double check to be really sure
-	if tx.Erc20Fee.Contract != tx.Erc20Token.Contract {
-		return sdkerrors.Wrapf(types.ErrInvalid, "Inconsistent tokens to cancel!: %s %s", tx.Erc20Fee.Contract, tx.Erc20Token.Contract)
+	if tx.ERC20Fee.Contract != tx.ERC20Token.Contract {
+		return sdkerrors.Wrapf(types.ErrInvalid, "Inconsistent tokens to cancel!: %s %s", tx.ERC20Fee.Contract, tx.ERC20Token.Contract)
 	}
 
 	// delete this tx from both indexes
 	k.removePoolEntry(ctx, txId)
-	k.removeFromUnbatchedTXIndex(ctx, *tx.Erc20Fee, txId)
+	k.removeFromUnbatchedTXIndex(ctx, *tx.ERC20Fee, txId)
 
 	// reissue the amount and the fee
 
-	totalToRefund := tx.Erc20Token.GravityCoin()
-	totalToRefund.Amount = totalToRefund.Amount.Add(tx.Erc20Fee.Amount)
+	totalToRefund := tx.ERC20Token.GravityCoin()
+	totalToRefund.Amount = totalToRefund.Amount.Add(tx.ERC20Fee.Amount)
 	totalToRefundCoins := sdk.NewCoins(totalToRefund)
 
-	isCosmosOriginated, _ := k.Erc20ToDenomLookup(ctx, tx.Erc20Token.Contract)
+	isCosmosOriginated, _ := k.ERC20ToDenomLookup(ctx, tx.ERC20Token.Contract)
 
 	// If it is a cosmos-originated the coins are in the module (see AddToOutgoingPool) so we can just take them out
 	if isCosmosOriginated {
@@ -168,7 +168,7 @@ func (k Keeper) RemoveFromOutgoingPoolAndRefund(ctx sdk.Context, txId uint64, se
 }
 
 // appendToUnbatchedTXIndex add at the end when tx with same fee exists
-func (k Keeper) appendToUnbatchedTXIndex(ctx sdk.Context, tokenContract string, fee types.Erc20Token, txID uint64) {
+func (k Keeper) appendToUnbatchedTXIndex(ctx sdk.Context, tokenContract string, fee types.ERC20Token, txID uint64) {
 	store := ctx.KVStore(k.storeKey)
 	idxKey := types.GetFeeSecondIndexKey(fee)
 	var idSet types.IDSet
@@ -181,7 +181,7 @@ func (k Keeper) appendToUnbatchedTXIndex(ctx sdk.Context, tokenContract string, 
 }
 
 // appendToUnbatchedTXIndex add at the top when tx with same fee exists
-func (k Keeper) prependToUnbatchedTXIndex(ctx sdk.Context, tokenContract string, fee types.Erc20Token, txID uint64) {
+func (k Keeper) prependToUnbatchedTXIndex(ctx sdk.Context, tokenContract string, fee types.ERC20Token, txID uint64) {
 	store := ctx.KVStore(k.storeKey)
 	idxKey := types.GetFeeSecondIndexKey(fee)
 	var idSet types.IDSet
@@ -194,7 +194,7 @@ func (k Keeper) prependToUnbatchedTXIndex(ctx sdk.Context, tokenContract string,
 }
 
 // removeFromUnbatchedTXIndex removes the tx from the index and makes it implicit no available anymore
-func (k Keeper) removeFromUnbatchedTXIndex(ctx sdk.Context, fee types.Erc20Token, txID uint64) error {
+func (k Keeper) removeFromUnbatchedTXIndex(ctx sdk.Context, fee types.ERC20Token, txID uint64) error {
 	store := ctx.KVStore(k.storeKey)
 	idxKey := types.GetFeeSecondIndexKey(fee)
 	var idSet types.IDSet

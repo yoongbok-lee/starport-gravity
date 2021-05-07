@@ -12,15 +12,15 @@ import (
 	"github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types"
 )
 
-// Have the validators put in a erc20<>denom relation with Erc20DeployedEvent
+// Have the validators put in a erc20<>denom relation with ERC20DeployedEvent
 // Send some coins of that denom into the cosmos module
 // Check that the coins are locked, not burned
-// Have the validators put in a deposit event for that Erc20
+// Have the validators put in a deposit event for that ERC20
 // Check that the coins are unlocked and sent to the right account
 
 func TestCosmosOriginated(t *testing.T) {
 	tv := initializeTestingVars(t)
-	addDenomToErc20Relation(tv)
+	addDenomToERC20Relation(tv)
 	lockCoinsInModule(tv)
 	acceptDepositEvent(tv)
 }
@@ -56,7 +56,7 @@ func initializeTestingVars(t *testing.T) *testingVars {
 	return &tv
 }
 
-func addDenomToErc20Relation(tv *testingVars) {
+func addDenomToERC20Relation(tv *testingVars) {
 	tv.input.BankKeeper.SetDenomMetaData(tv.ctx, bank.Metadata{
 		Description: "The native staking token of the Cosmos Hub.",
 		DenomUnits: []*bank.DenomUnit{
@@ -72,7 +72,7 @@ func addDenomToErc20Relation(tv *testingVars) {
 		myNonce = uint64(1)
 	)
 
-	ethClaim := types.MsgErc20DeployedClaim{
+	ethClaim := types.MsgERC20DeployedClaim{
 		CosmosDenom:   tv.denom,
 		TokenContract: tv.erc20,
 		Name:          "atom",
@@ -92,15 +92,15 @@ func addDenomToErc20Relation(tv *testingVars) {
 	require.NotNil(tv.t, a)
 
 	// check if erc20<>denom relation added to db
-	isCosmosOriginated, gotErc20, err := tv.input.GravityKeeper.DenomToErc20Lookup(tv.ctx, tv.denom)
+	isCosmosOriginated, gotERC20, err := tv.input.GravityKeeper.DenomToERC20Lookup(tv.ctx, tv.denom)
 	require.NoError(tv.t, err)
 	assert.True(tv.t, isCosmosOriginated)
 
-	isCosmosOriginated, gotDenom := tv.input.GravityKeeper.Erc20ToDenomLookup(tv.ctx, tv.erc20)
+	isCosmosOriginated, gotDenom := tv.input.GravityKeeper.ERC20ToDenomLookup(tv.ctx, tv.erc20)
 	assert.True(tv.t, isCosmosOriginated)
 
 	assert.Equal(tv.t, tv.denom, gotDenom)
-	assert.Equal(tv.t, tv.erc20, gotErc20)
+	assert.Equal(tv.t, tv.erc20, gotERC20)
 }
 
 func lockCoinsInModule(tv *testingVars) {
@@ -153,15 +153,15 @@ func acceptDepositEvent(tv *testingVars) {
 		anyETHAddr                        = "0xf9613b532673Cc223aBa451dFA8539B87e1F666D"
 	)
 
-	myErc20 := types.Erc20Token{
+	myERC20 := types.ERC20Token{
 		Amount:   sdk.NewInt(12),
 		Contract: tv.erc20,
 	}
 
 	ethClaim := types.MsgDepositClaim{
 		EventNonce:     myNonce,
-		TokenContract:  myErc20.Contract,
-		Amount:         myErc20.Amount,
+		TokenContract:  myERC20.Contract,
+		Amount:         myERC20.Amount,
 		EthereumSender: anyETHAddr,
 		CosmosReceiver: myCosmosAddr.String(),
 		Orchestrator:   myOrchestratorAddr.String(),
@@ -177,13 +177,13 @@ func acceptDepositEvent(tv *testingVars) {
 
 	// Check that user balance has gone up
 	assert.Equal(tv.t,
-		sdk.Coins{sdk.NewCoin(tv.denom, myErc20.Amount)},
+		sdk.Coins{sdk.NewCoin(tv.denom, myERC20.Amount)},
 		tv.input.BankKeeper.GetAllBalances(tv.ctx, myCosmosAddr))
 
 	// Check that gravity balance has gone down
 	gravityAddr := tv.input.AccountKeeper.GetModuleAddress(types.ModuleName)
 	assert.Equal(tv.t,
-		sdk.Coins{sdk.NewCoin(tv.denom, sdk.NewIntFromUint64(55).Sub(myErc20.Amount))},
+		sdk.Coins{sdk.NewCoin(tv.denom, sdk.NewIntFromUint64(55).Sub(myERC20.Amount))},
 		tv.input.BankKeeper.GetAllBalances(tv.ctx, gravityAddr),
 	)
 }

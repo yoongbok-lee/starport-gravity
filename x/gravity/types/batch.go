@@ -37,9 +37,9 @@ func (b OutgoingTxBatch) GetCheckpoint(gravityIDstring string) ([]byte, error) {
 	txDestinations := make([]gethcommon.Address, len(b.Transactions))
 	txFees := make([]*big.Int, len(b.Transactions))
 	for i, tx := range b.Transactions {
-		txAmounts[i] = tx.Erc20Token.Amount.BigInt()
+		txAmounts[i] = tx.ERC20Token.Amount.BigInt()
 		txDestinations[i] = gethcommon.HexToAddress(tx.DestAddress)
-		txFees[i] = tx.Erc20Fee.Amount.BigInt()
+		txFees[i] = tx.ERC20Fee.Amount.BigInt()
 	}
 
 	// the methodName needs to be the same as the 'name' above in the checkpointAbiJson

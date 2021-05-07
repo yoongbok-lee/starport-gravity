@@ -44,20 +44,20 @@ func ValidateEthAddress(a string) error {
 }
 
 /////////////////////////
-//     Erc20Token      //
+//     ERC20Token      //
 /////////////////////////
 
-// NewErc20Token returns a new instance of an Erc20
-func NewErc20Token(amount uint64, contract string) *Erc20Token {
-	return &Erc20Token{Amount: sdk.NewIntFromUint64(amount), Contract: contract}
+// NewERC20Token returns a new instance of an ERC20
+func NewERC20Token(amount uint64, contract string) *ERC20Token {
+	return &ERC20Token{Amount: sdk.NewIntFromUint64(amount), Contract: contract}
 }
 
-func NewSDKIntErc20Token(amount sdk.Int, contract string) *Erc20Token {
-	return &Erc20Token{Amount: amount, Contract: contract}
+func NewSDKIntERC20Token(amount sdk.Int, contract string) *ERC20Token {
+	return &ERC20Token{Amount: amount, Contract: contract}
 }
 
-// GravityCoin returns the gravity representation of the Erc20
-func (e *Erc20Token) GravityCoin() sdk.Coin {
+// GravityCoin returns the gravity representation of the ERC20
+func (e *ERC20Token) GravityCoin() sdk.Coin {
 	return sdk.NewCoin(GravityDenom(e.Contract), e.Amount)
 }
 
@@ -66,7 +66,7 @@ func GravityDenom(tokenContract string) string {
 }
 
 // ValidateBasic permforms stateless validation
-func (e *Erc20Token) ValidateBasic() error {
+func (e *ERC20Token) ValidateBasic() error {
 	if err := ValidateEthAddress(e.Contract); err != nil {
 		return sdkerrors.Wrap(err, "ethereum address")
 	}
@@ -74,9 +74,9 @@ func (e *Erc20Token) ValidateBasic() error {
 	return nil
 }
 
-// Add adds one Erc20 to another
+// Add adds one ERC20 to another
 // TODO: make this return errors instead
-func (e *Erc20Token) Add(o *Erc20Token) *Erc20Token {
+func (e *ERC20Token) Add(o *ERC20Token) *ERC20Token {
 	if string(e.Contract) != string(o.Contract) {
 		panic("invalid contract address")
 	}
@@ -84,10 +84,10 @@ func (e *Erc20Token) Add(o *Erc20Token) *Erc20Token {
 	if !sum.IsUint64() {
 		panic("invalid amount")
 	}
-	return NewErc20Token(sum.Uint64(), e.Contract)
+	return NewERC20Token(sum.Uint64(), e.Contract)
 }
 
-func GravityDenomToErc20(denom string) (string, error) {
+func GravityDenomToERC20(denom string) (string, error) {
 	fullPrefix := GravityDenomPrefix + GravityDenomSeparator
 	if !strings.HasPrefix(denom, fullPrefix) {
 		return "", fmt.Errorf("denom prefix(%s) not equal to expected(%s)", denom, fullPrefix)

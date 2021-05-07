@@ -93,15 +93,15 @@ func TestMsgDepositClaimSingleValidator(t *testing.T) {
 	input.GravityKeeper.SetOrchestratorValidator(ctx, myValAddr, myOrchestratorAddr)
 	h := NewHandler(input.GravityKeeper)
 
-	myErc20 := types.Erc20Token{
+	myERC20 := types.ERC20Token{
 		Amount:   amountA,
 		Contract: tokenETHAddr,
 	}
 
 	ethClaim := types.MsgDepositClaim{
 		EventNonce:     myNonce,
-		TokenContract:  myErc20.Contract,
-		Amount:         myErc20.Amount,
+		TokenContract:  myERC20.Contract,
+		Amount:         myERC20.Amount,
 		EthereumSender: anyETHAddr,
 		CosmosReceiver: myCosmosAddr.String(),
 		Orchestrator:   myOrchestratorAddr.String(),
@@ -192,31 +192,31 @@ func TestMsgDepositClaimsMultiValidator(t *testing.T) {
 	input.GravityKeeper.SetOrchestratorValidator(ctx, valAddr3, orchestratorAddr3)
 	h := NewHandler(input.GravityKeeper)
 
-	myErc20 := types.Erc20Token{
+	myERC20 := types.ERC20Token{
 		Amount:   sdk.NewInt(12),
 		Contract: tokenETHAddr,
 	}
 
 	ethClaim1 := types.MsgDepositClaim{
 		EventNonce:     myNonce,
-		TokenContract:  myErc20.Contract,
-		Amount:         myErc20.Amount,
+		TokenContract:  myERC20.Contract,
+		Amount:         myERC20.Amount,
 		EthereumSender: anyETHAddr,
 		CosmosReceiver: myCosmosAddr.String(),
 		Orchestrator:   orchestratorAddr1.String(),
 	}
 	ethClaim2 := types.MsgDepositClaim{
 		EventNonce:     myNonce,
-		TokenContract:  myErc20.Contract,
-		Amount:         myErc20.Amount,
+		TokenContract:  myERC20.Contract,
+		Amount:         myERC20.Amount,
 		EthereumSender: anyETHAddr,
 		CosmosReceiver: myCosmosAddr.String(),
 		Orchestrator:   orchestratorAddr2.String(),
 	}
 	ethClaim3 := types.MsgDepositClaim{
 		EventNonce:     myNonce,
-		TokenContract:  myErc20.Contract,
-		Amount:         myErc20.Amount,
+		TokenContract:  myERC20.Contract,
+		Amount:         myERC20.Amount,
 		EthereumSender: anyETHAddr,
 		CosmosReceiver: myCosmosAddr.String(),
 		Orchestrator:   orchestratorAddr3.String(),

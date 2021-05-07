@@ -185,12 +185,12 @@ func currentValsetHandler(cliCtx client.Context, storeName string) http.HandlerF
 	}
 }
 
-func denomToErc20Handler(cliCtx client.Context, storeName string) http.HandlerFunc {
+func denomToERC20Handler(cliCtx client.Context, storeName string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
 		denom := vars[denom]
 
-		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/DenomToErc20/%s", storeName, denom))
+		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/DenomToERC20/%s", storeName, denom))
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusInternalServerError, err.Error())
 			return
@@ -199,12 +199,12 @@ func denomToErc20Handler(cliCtx client.Context, storeName string) http.HandlerFu
 	}
 }
 
-func Erc20ToDenomHandler(cliCtx client.Context, storeName string) http.HandlerFunc {
+func ERC20ToDenomHandler(cliCtx client.Context, storeName string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
-		Erc20 := vars[tokenAddress]
+		ERC20 := vars[tokenAddress]
 
-		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/Erc20ToDenom/%s", storeName, Erc20))
+		res, height, err := cliCtx.Query(fmt.Sprintf("custom/%s/ERC20ToDenom/%s", storeName, ERC20))
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusInternalServerError, err.Error())
 			return

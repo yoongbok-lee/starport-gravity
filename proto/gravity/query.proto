@@ -63,10 +63,10 @@ service Query {
   rpc LogicConfirms(QueryLogicConfirmsRequest) returns (QueryLogicConfirmsResponse) {
     option (google.api.http).get = "/gravity/v1beta/logic/confirms";
   }
-  rpc Erc20ToDenom(QueryErc20ToDenomRequest) returns (QueryErc20ToDenomResponse) {
+  rpc ERC20ToDenom(QueryERC20ToDenomRequest) returns (QueryERC20ToDenomResponse) {
     option (google.api.http).get = "/gravity/v1beta/cosmos_originated/erc20_to_denom";
   }
-  rpc DenomToErc20(QueryDenomToErc20Request) returns (QueryDenomToErc20Response) {
+  rpc DenomToERC20(QueryDenomToERC20Request) returns (QueryDenomToERC20Response) {
     option (google.api.http).get = "/gravity/v1beta/cosmos_originated/denom_to_erc20";
   }
 
@@ -196,18 +196,18 @@ message QueryLastEventNonceByAddrResponse {
   uint64 event_nonce = 1;
 }
 
-message QueryErc20ToDenomRequest {
+message QueryERC20ToDenomRequest {
   string erc20 = 1;
 }
-message QueryErc20ToDenomResponse {
+message QueryERC20ToDenomResponse {
   string denom             = 1;
   bool   cosmos_originated = 2;
 }
 
-message QueryDenomToErc20Request {
+message QueryDenomToERC20Request {
   string denom = 1;
 }
-message QueryDenomToErc20Response {
+message QueryDenomToERC20Response {
   string erc20             = 1;
   bool   cosmos_originated = 2;
 }

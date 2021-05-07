@@ -138,9 +138,9 @@ func (k msgServer) SendToEth(c context.Context, msg *types.MsgSendToEth) (*types
 func (k msgServer) RequestBatch(c context.Context, msg *types.MsgRequestBatch) (*types.MsgRequestBatchResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
 
-	// Check if the denom is a gravity coin, if not, check if there is a deployed Erc20 representing it.
+	// Check if the denom is a gravity coin, if not, check if there is a deployed ERC20 representing it.
 	// If not, error out
-	_, tokenContract, err := k.DenomToErc20Lookup(ctx, msg.Denom)
+	_, tokenContract, err := k.DenomToERC20Lookup(ctx, msg.Denom)
 	if err != nil {
 		return nil, err
 	}
@@ -359,8 +359,8 @@ func (k msgServer) WithdrawClaim(c context.Context, msg *types.MsgWithdrawClaim)
 	return &types.MsgWithdrawClaimResponse{}, nil
 }
 
-// Erc20Deployed handles MsgErc20Deployed
-func (k msgServer) Erc20DeployedClaim(c context.Context, msg *types.MsgErc20DeployedClaim) (*types.MsgErc20DeployedClaimResponse, error) {
+// ERC20Deployed handles MsgERC20Deployed
+func (k msgServer) ERC20DeployedClaim(c context.Context, msg *types.MsgERC20DeployedClaim) (*types.MsgERC20DeployedClaimResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
 
 	orchaddr, _ := sdk.AccAddressFromBech32(msg.Orchestrator)
@@ -396,7 +396,7 @@ func (k msgServer) Erc20DeployedClaim(c context.Context, msg *types.MsgErc20Depl
 		),
 	)
 
-	return &types.MsgErc20DeployedClaimResponse{}, nil
+	return &types.MsgERC20DeployedClaimResponse{}, nil
 }
 
 // LogicCallExecutedClaim handles claims for executing a logic call on Ethereum

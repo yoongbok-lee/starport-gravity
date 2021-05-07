@@ -139,7 +139,7 @@ This message will fail if:
 - The validator is not in the active set
 - If the creation of attestation fails
 
-### MsgErc20DeployedClaim
+### MsgERC20DeployedClaim
 
 This message allows the cosmos chain to learn information about the denom from the counter party chain.
 

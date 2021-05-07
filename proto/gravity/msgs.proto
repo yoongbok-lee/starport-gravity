@@ -33,8 +33,8 @@ service Msg {
   rpc ValsetUpdateClaim(MsgValsetUpdatedClaim) returns (MsgValsetUpdatedClaimResponse) {
     option (google.api.http).post = "/gravity/v1/valset_updated_claim";
   }
-  rpc Erc20DeployedClaim(MsgErc20DeployedClaim)
-      returns (MsgErc20DeployedClaimResponse) {
+  rpc ERC20DeployedClaim(MsgERC20DeployedClaim)
+      returns (MsgERC20DeployedClaimResponse) {
     option (google.api.http).post = "/gravity/v1/erc20_deployed_claim";
   }
   rpc LogicCallExecutedClaim(MsgLogicCallExecutedClaim)
@@ -203,10 +203,10 @@ message MsgWithdrawClaim {
 
 message MsgWithdrawClaimResponse {}
 
-// Erc20DeployedClaim allows the Cosmos module
-// to learn about an Erc20 that someone deployed
+// ERC20DeployedClaim allows the Cosmos module
+// to learn about an ERC20 that someone deployed
 // to represent a Cosmos asset
-message MsgErc20DeployedClaim {
+message MsgERC20DeployedClaim {
   uint64 event_nonce    = 1;
   uint64 block_height   = 2;
   string cosmos_denom   = 3;
@@ -217,7 +217,7 @@ message MsgErc20DeployedClaim {
   string orchestrator   = 8;
 }
 
-message MsgErc20DeployedClaimResponse {}
+message MsgERC20DeployedClaimResponse {}
 
 // This informs the Cosmos module that a logic
 // call has been executed

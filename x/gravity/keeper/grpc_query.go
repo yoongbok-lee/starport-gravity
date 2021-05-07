@@ -245,26 +245,26 @@ func (k Keeper) LastEventNonceByAddr(
 	return &ret, nil
 }
 
-// DenomToErc20 queries the Cosmos Denom that maps to an Ethereum Erc20
-func (k Keeper) DenomToErc20(
+// DenomToERC20 queries the Cosmos Denom that maps to an Ethereum ERC20
+func (k Keeper) DenomToERC20(
 	c context.Context,
-	req *types.QueryDenomToErc20Request) (*types.QueryDenomToErc20Response, error) {
+	req *types.QueryDenomToERC20Request) (*types.QueryDenomToERC20Response, error) {
 	ctx := sdk.UnwrapSDKContext(c)
-	cosmosOriginated, erc20, err := k.DenomToErc20Lookup(ctx, req.Denom)
-	var ret types.QueryDenomToErc20Response
-	ret.Erc20 = erc20
+	cosmosOriginated, erc20, err := k.DenomToERC20Lookup(ctx, req.Denom)
+	var ret types.QueryDenomToERC20Response
+	ret.ERC20 = erc20
 	ret.CosmosOriginated = cosmosOriginated
 
 	return &ret, err
 }
 
-// Erc20ToDenom queries the Erc20 contract that maps to an Ethereum Erc20 if any
-func (k Keeper) Erc20ToDenom(
+// ERC20ToDenom queries the ERC20 contract that maps to an Ethereum ERC20 if any
+func (k Keeper) ERC20ToDenom(
 	c context.Context,
-	req *types.QueryErc20ToDenomRequest) (*types.QueryErc20ToDenomResponse, error) {
+	req *types.QueryERC20ToDenomRequest) (*types.QueryERC20ToDenomResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
-	cosmosOriginated, name := k.Erc20ToDenomLookup(ctx, req.Erc20)
-	var ret types.QueryErc20ToDenomResponse
+	cosmosOriginated, name := k.ERC20ToDenomLookup(ctx, req.ERC20)
+	var ret types.QueryERC20ToDenomResponse
 	ret.Denom = name
 	ret.CosmosOriginated = cosmosOriginated
 
