@@ -115,8 +115,8 @@ func InitGenesis(ctx sdk.Context, k Keeper, data types.GenesisState) {
 	}
 
 	// populate state with cosmos originated denom-erc20 mapping
-	for _, item := range data.ERC20ToDenoms {
-		k.setCosmosOriginatedDenomToERC20(ctx, item.Denom, item.ERC20)
+	for _, item := range data.Erc20ToDenoms {
+		k.setCosmosOriginatedDenomToERC20(ctx, item.Denom, item.Erc20)
 	}
 }
 
@@ -182,7 +182,7 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 		LogicCallConfirms:  callconfs,
 		Attestations:       attestations,
 		DelegateKeys:       delegates,
-		ERC20ToDenoms:      erc20ToDenoms,
+		Erc20ToDenoms:      erc20ToDenoms,
 		UnbatchedTransfers: unbatchedTransfers,
 	}
 }

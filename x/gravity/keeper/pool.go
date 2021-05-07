@@ -62,8 +62,8 @@ func (k Keeper) AddToOutgoingPool(ctx sdk.Context, sender sdk.AccAddress, counte
 		Id:          nextID,
 		Sender:      sender.String(),
 		DestAddress: counterpartReceiver,
-		ERC20Token:  types.NewSDKIntERC20Token(amount.Amount, tokenContract),
-		ERC20Fee:    erc20Fee,
+		Erc20Token:  types.NewSDKIntERC20Token(amount.Amount, tokenContract),
+		Erc20Fee:    erc20Fee,
 	}
 
 	// set the outgoing tx in the pool index
@@ -124,21 +124,21 @@ func (k Keeper) RemoveFromOutgoingPoolAndRefund(ctx sdk.Context, txId uint64, se
 
 	// An inconsistent entry should never enter the store, but this is the ideal place to exploit
 	// it such a bug if it did ever occur, so we should double check to be really sure
-	if tx.ERC20Fee.Contract != tx.ERC20Token.Contract {
-		return sdkerrors.Wrapf(types.ErrInvalid, "Inconsistent tokens to cancel!: %s %s", tx.ERC20Fee.Contract, tx.ERC20Token.Contract)
+	if tx.Erc20Fee.Contract != tx.Erc20Token.Contract {
+		return sdkerrors.Wrapf(types.ErrInvalid, "Inconsistent tokens to cancel!: %s %s", tx.Erc20Fee.Contract, tx.Erc20Token.Contract)
 	}
 
 	// delete this tx from both indexes
 	k.removePoolEntry(ctx, txId)
-	k.removeFromUnbatchedTXIndex(ctx, *tx.ERC20Fee, txId)
+	k.removeFromUnbatchedTXIndex(ctx, *tx.Erc20Fee, txId)
 
 	// reissue the amount and the fee
 
-	totalToRefund := tx.ERC20Token.GravityCoin()
-	totalToRefund.Amount = totalToRefund.Amount.Add(tx.ERC20Fee.Amount)
+	totalToRefund := tx.Erc20Token.GravityCoin()
+	totalToRefund.Amount = totalToRefund.Amount.Add(tx.Erc20Fee.Amount)
 	totalToRefundCoins := sdk.NewCoins(totalToRefund)
 
-	isCosmosOriginated, _ := k.ERC20ToDenomLookup(ctx, tx.ERC20Token.Contract)
+	isCosmosOriginated, _ := k.ERC20ToDenomLookup(ctx, tx.Erc20Token.Contract)
 
 	// If it is a cosmos-originated the coins are in the module (see AddToOutgoingPool) so we can just take them out
 	if isCosmosOriginated {

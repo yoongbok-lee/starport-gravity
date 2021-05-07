@@ -495,7 +495,7 @@ func queryDenomToERC20(ctx sdk.Context, denom string, keeper Keeper) ([]byte, er
 	}
 	var response types.QueryDenomToERC20Response
 	response.CosmosOriginated = cosmos_originated
-	response.ERC20 = erc20
+	response.Erc20 = erc20
 	bytes, err := codec.MarshalJSONIndent(types.ModuleCdc, response)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrJSONMarshal, err.Error())

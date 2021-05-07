@@ -82,7 +82,7 @@ func (k Keeper) IterateERC20ToDenom(ctx sdk.Context, cb func([]byte, *types.ERC2
 
 	for ; iter.Valid(); iter.Next() {
 		erc20ToDenom := types.ERC20ToDenom{
-			ERC20: string(iter.Key()),
+			Erc20: string(iter.Key()),
 			Denom: string(iter.Value()),
 		}
 		// cb returns true to stop early
