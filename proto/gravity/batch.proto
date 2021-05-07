@@ -20,14 +20,14 @@ message OutgoingTransferTx {
   uint64     id           = 1;
   string     sender       = 2;
   string     dest_address = 3;
-  ERC20Token erc20_token  = 4;
-  ERC20Token erc20_fee    = 5;
+  Erc20Token erc20_token  = 4;
+  Erc20Token erc20_fee    = 5;
 }
 
 // OutgoingLogicCall represents an individual logic call from gravity to ETH
 message OutgoingLogicCall {
-  repeated ERC20Token transfers              = 1;
-  repeated ERC20Token fees                   = 2;
+  repeated Erc20Token transfers              = 1;
+  repeated Erc20Token fees                   = 2;
   string              logic_contract_address = 3;
   bytes               payload                = 4;
   uint64              timeout                = 5;

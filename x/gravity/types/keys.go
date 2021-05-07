@@ -91,11 +91,11 @@ var (
 	// KeyOutgoingLogicConfirm indexes the outgoing logic confirms
 	KeyOutgoingLogicConfirm = []byte{0xae}
 
-	// DenomToERC20Key prefixes the index of Cosmos originated asset denoms to ERC20s
-	DenomToERC20Key = []byte{0x15}
+	// DenomToErc20Key prefixes the index of Cosmos originated asset denoms to Erc20s
+	DenomToErc20Key = []byte{0x15}
 
-	// ERC20ToDenomKey prefixes the index of Cosmos originated assets ERC20s to denoms
-	ERC20ToDenomKey = []byte{0x16}
+	// Erc20ToDenomKey prefixes the index of Cosmos originated assets Erc20s to denoms
+	Erc20ToDenomKey = []byte{0x16}
 
 	// LastSlashedValsetNonce indexes the latest slashed valset nonce
 	LastSlashedValsetNonce = []byte{0xf5}
@@ -237,7 +237,7 @@ func GetBatchConfirmKey(tokenContract string, batchNonce uint64, validator sdk.A
 // GetFeeSecondIndexKey returns the following key format
 // prefix            eth-contract-address            fee_amount
 // [0x9][0xc783df8a850f42e7F7e57013759C285caa701eB6][1000000000]
-func GetFeeSecondIndexKey(fee ERC20Token) []byte {
+func GetFeeSecondIndexKey(fee Erc20Token) []byte {
 	r := make([]byte, 1+ETHContractAddressLen+32)
 	// sdkInts have a size limit of 255 bits or 32 bytes
 	// therefore this will never panic and is always safe
@@ -258,12 +258,12 @@ func GetLastEventNonceByValidatorKey(validator sdk.ValAddress) []byte {
 	return append(LastEventNonceByValidatorKey, validator.Bytes()...)
 }
 
-func GetDenomToERC20Key(denom string) []byte {
-	return append(DenomToERC20Key, []byte(denom)...)
+func GetDenomToErc20Key(denom string) []byte {
+	return append(DenomToErc20Key, []byte(denom)...)
 }
 
-func GetERC20ToDenomKey(erc20 string) []byte {
-	return append(ERC20ToDenomKey, []byte(erc20)...)
+func GetErc20ToDenomKey(erc20 string) []byte {
+	return append(Erc20ToDenomKey, []byte(erc20)...)
 }
 
 func GetOutgoingLogicCallKey(invalidationId []byte, invalidationNonce uint64) []byte {

@@ -28,9 +28,9 @@ message LastObservedEthereumBlockHeight {
   uint64 ethereum_block_height = 2;
 }
 
-// This records the relationship between an ERC20 token and the denom
+// This records the relationship between an Erc20 token and the denom
 // of the corresponding Cosmos originated asset
-message ERC20ToDenom {
+message Erc20ToDenom {
   string erc20 = 1;
   string denom = 2;
 }

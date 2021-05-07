@@ -1,7 +1,7 @@
 syntax = "proto3";
 package gravity.v1;
 
-// TODO-JT: add ERC20DeployedEvent claim
+// TODO-JT: add Erc20DeployedEvent claim
 
 import "gogoproto/gogo.proto";
 import "google/protobuf/any.proto";
@@ -16,7 +16,7 @@ enum ClaimType {
   CLAIM_TYPE_UNSPECIFIED         = 0;
   CLAIM_TYPE_DEPOSIT             = 1;
   CLAIM_TYPE_WITHDRAW            = 2;
-  CLAIM_TYPE_ERC20_DEPLOYED      = 3;
+  CLAIM_TYPE_Erc20_DEPLOYED      = 3;
   CLAIM_TYPE_LOGIC_CALL_EXECUTED = 4;
   CLAIM_TYPE_VALSET_UPDATED      = 5;
 }
@@ -43,12 +43,12 @@ message Attestation {
   google.protobuf.Any claim    = 4;
 }
 
-// ERC20Token unique identifier for an Ethereum ERC20 token.
+// Erc20Token unique identifier for an Ethereum Erc20 token.
 // CONTRACT:
 // The contract address on ETH of the token, this could be a Cosmos
-// originated token, if so it will be the ERC20 address of the representation
+// originated token, if so it will be the Erc20 address of the representation
 // (note: developers should look up the token symbol using the address on ETH to display for UI)
-message ERC20Token {
+message Erc20Token {
   string contract = 1;
   string amount   = 2 [
     (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",

@@ -82,10 +82,10 @@ const (
 	QueryLogicCallConfirms = "logicCallConfirms"
 
 	// Token mapping
-	// This retrieves the denom which is represented by a given ERC20 contract
-	QueryERC20ToDenom = "ERC20ToDenom"
-	// This retrieves the ERC20 contract which represents a given denom
-	QueryDenomToERC20 = "DenomToERC20"
+	// This retrieves the denom which is represented by a given Erc20 contract
+	QueryErc20ToDenom = "Erc20ToDenom"
+	// This retrieves the Erc20 contract which represents a given denom
+	QueryDenomToErc20 = "DenomToErc20"
 
 	// Query pending transactions
 	QueryPendingSendToEth = "PendingSendToEth"
@@ -136,10 +136,10 @@ func NewQuerier(keeper Keeper) sdk.Querier {
 			return queryGravityID(ctx, keeper)
 
 		// Token mappings
-		case QueryDenomToERC20:
-			return queryDenomToERC20(ctx, path[1], keeper)
-		case QueryERC20ToDenom:
-			return queryERC20ToDenom(ctx, path[1], keeper)
+		case QueryDenomToErc20:
+			return queryDenomToErc20(ctx, path[1], keeper)
+		case QueryErc20ToDenom:
+			return queryErc20ToDenom(ctx, path[1], keeper)
 
 		// Pending transactions
 		case QueryPendingSendToEth:
@@ -488,12 +488,12 @@ func queryGravityID(ctx sdk.Context, keeper Keeper) ([]byte, error) {
 	}
 }
 
-func queryDenomToERC20(ctx sdk.Context, denom string, keeper Keeper) ([]byte, error) {
-	cosmos_originated, erc20, err := keeper.DenomToERC20Lookup(ctx, denom)
+func queryDenomToErc20(ctx sdk.Context, denom string, keeper Keeper) ([]byte, error) {
+	cosmos_originated, erc20, err := keeper.DenomToErc20Lookup(ctx, denom)
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrJSONMarshal, err.Error())
 	}
-	var response types.QueryDenomToERC20Response
+	var response types.QueryDenomToErc20Response
 	response.CosmosOriginated = cosmos_originated
 	response.Erc20 = erc20
 	bytes, err := codec.MarshalJSONIndent(types.ModuleCdc, response)
@@ -504,9 +504,9 @@ func queryDenomToERC20(ctx sdk.Context, denom string, keeper Keeper) ([]byte, er
 	}
 }
 
-func queryERC20ToDenom(ctx sdk.Context, ERC20 string, keeper Keeper) ([]byte, error) {
-	cosmos_originated, denom := keeper.ERC20ToDenomLookup(ctx, ERC20)
-	var response types.QueryERC20ToDenomResponse
+func queryErc20ToDenom(ctx sdk.Context, Erc20 string, keeper Keeper) ([]byte, error) {
+	cosmos_originated, denom := keeper.Erc20ToDenomLookup(ctx, Erc20)
+	var response types.QueryErc20ToDenomResponse
 	response.CosmosOriginated = cosmos_originated
 	response.Denom = denom
 	bytes, err := codec.MarshalJSONIndent(types.ModuleCdc, response)
