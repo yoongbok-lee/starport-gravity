@@ -1,5 +1,6 @@
  - install starport.
  - start gravity process through starport with `starport serve --force-reset`.
+ - you might need to copy `gravityd` to `gravity` under `$PATH`. ex) `whereis gravityd` -> `cp gravityd <new_location>`
  - install and start a `geth` process (light sync mode recommended).
  - navigate to `scripts/`
  - in `setup-orch.sh`, modify the `cosphr` variable to what's shown as `alice`'s private mnemonics.
