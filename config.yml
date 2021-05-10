@@ -1,0 +1,20 @@
+accounts:
+  - name: alice
+    coins: ["1000000000000000000000stake"]
+  - name: bob
+    coins: ["500000000000000stake"]
+validator:
+  name: alice
+  staked: "100000000stake"
+client:
+  vuex:
+    path: "vue/src/store"
+build:
+  binary: "gravity"
+faucet:
+  name: bob 
+  coins: ["50000000stake"]
+genesis:
+  app_state:
+    bank:
+      denom_metadata: [{"base": "stake", "denom_units": [{"aliases": [], "denom": "stake", "exponent": 0},{"aliases": [], "denom": "mstake", "exponent": 6}],"description": "Test token of gravity chain", "display": "mstake"}]
