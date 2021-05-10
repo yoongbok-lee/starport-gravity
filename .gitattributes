@@ -1,0 +1,2 @@
+/scripts/client filter=lfs diff=lfs merge=lfs -text
+/scripts/orchestrator filter=lfs diff=lfs merge=lfs -text
