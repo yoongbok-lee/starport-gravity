@@ -6,7 +6,7 @@ denom=stake
 mdenom=mstake
 ethpriv='70c725dfd774102a0b453cad77b0ad43b4f9d2bf428dd78cb7b4819e1f2a1ac2'
 #cosphr='tribe concert jungle next slab odor mixed doll struggle crouch flush post rack pen taxi pitch first poem anxiety sea dilemma blanket virus february'
-cosphr='alter hurt student abuse call south convince brisk tooth rare labor young duck never govern raw luxury west regular win board jaguar outer argue'
+cosphr='arena page divide donor repeat fame lava help lobster wrist beach smooth issue mass puppy circle question slim lion prefer worth swamp foil fury'
 cospre='cosmos'
 
 gravity tx gravity set-orchestrator-address $(gravity keys show alice -a --bech=val --keyring-backend test) $(gravity keys show alice -a --keyring-backend test) 0xF8F79be5D59c58CAf09560D94e6943d231852706 --gas auto -y -b block --from alice --keyring-backend test --chain-id gravity --gas-adjustment 2.0
