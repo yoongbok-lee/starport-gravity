@@ -10,7 +10,6 @@
    - npm install --save-dev chai @types/node @types/mocha @types/chai
    - npm install --save-dev hardhat-waffle ethereum-waffle chai hardhat-ethers ethers typechain typechain-target-ethers-v5
    - npm install --save-dev hardhat
-   - npx hardhat
  ```
  - start gravity process through starport with `starport serve --force-reset` in the root directory.
  - you might need to copy `gravityd` to `gravity` under `$PATH`. ex) `whereis gravityd` -> `cp gravityd <new_location>`
