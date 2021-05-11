@@ -16,5 +16,5 @@
  - in `setup-orch.sh`, modify the `cosphr` variable to what's shown as `alice`'s private mnemonics.
  - run `setup.orch.sh`. Occasionally the orchestrator might lag a bit and not produce a erc20 representation of the cosmos native token. Just re-run the last command `orchestrator deploy-erc20-representation...`
  - in the frontend `localhost:8080/types` you can create some cosmos->eth txs.
- - run `client build-batch` from alice to confirm batch transaction on ethereum.
+ - run `client build-batch` from alice to confirm batch transaction on ethereum. Or, you can refer to `client cosmos-to-eth` command to make txs on the CLI.
  - see the txs go through.
