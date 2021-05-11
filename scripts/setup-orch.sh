@@ -6,7 +6,7 @@ denom=stake
 mdenom=mstake
 ethpriv='70c725dfd774102a0b453cad77b0ad43b4f9d2bf428dd78cb7b4819e1f2a1ac2'
 #cosphr='tribe concert jungle next slab odor mixed doll struggle crouch flush post rack pen taxi pitch first poem anxiety sea dilemma blanket virus february'
-cosphr='early improve theme there enter affair remain book offer wild wagon element refuse wasp bounce ancient shock unable animal hurdle extra lesson liquid illness'
+cosphr='alter hurt student abuse call south convince brisk tooth rare labor young duck never govern raw luxury west regular win board jaguar outer argue'
 cospre='cosmos'
 
 gravity tx gravity set-orchestrator-address $(gravity keys show alice -a --bech=val --keyring-backend test) $(gravity keys show alice -a --keyring-backend test) 0xF8F79be5D59c58CAf09560D94e6943d231852706 --gas auto -y -b block --from alice --keyring-backend test --chain-id gravity --gas-adjustment 2.0
@@ -14,19 +14,19 @@ gravity tx gravity set-orchestrator-address $(gravity keys show alice -a --bech=
 # rm -rf gravity-bridge
 
 # git clone https://github.com/cosmos/gravity-bridge
-# cd cosmos-gravity-bridge/solidity
+cd cosmos-gravity-bridge/solidity
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 # . ~/.nvm/nvm.sh
 # nvm install node
 # sudo apt install cargo -y
 # npm install
-# npm run typechain
+npm run typechain
 cont=$(npx ts-node \
 	contract-deployer.ts \
 	--cosmos-node="http://localhost:26657" \
 	--eth-node="http://localhost:8545" \
 	--eth-privkey=$ethpriv \
-	--contract=Gravity.json | grep "Gravity deployed" | cut -b 32-)
+	--contract=artifacts/contracts/Gravity.sol/Gravity.json | grep "Gravity deployed" | cut -b 32-)
 
 # cd ../orchestrator
 # cargo build

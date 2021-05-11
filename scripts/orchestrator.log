@@ -1,0 +1,25 @@
+[2021-05-11T04:13:36Z INFO  orchestrator] Starting Gravity Validator companion binary Relayer + Oracle + Eth Signer
+[2021-05-11T04:13:36Z INFO  orchestrator] Ethereum Address: 0xF8F79be5D59c58CAf09560D94e6943d231852706 Cosmos Address cosmos1z4uhjteffs594fmuf8fx5v65kfwqdx99fq0tku
+[2021-05-11T04:13:36Z INFO  orchestrator::oracle_resync] Oracle is resyncing, looking back into the history to find our last event nonce 1, on block 8564756
+[2021-05-11T04:13:36Z INFO  orchestrator::main_loop] Sending 2 valset confirms starting with 10
+[2021-05-11T04:13:36Z ERROR relayer::valset_relaying] We don't have a latest confirmed valset?
+[2021-05-11T04:13:37Z INFO  orchestrator::main_loop] Oracle resync complete, Oracle now operational
+[2021-05-11T04:13:37Z INFO  orchestrator::ethereum_event_watcher] Oracle observed Valset update with nonce 0 and event nonce 1
+[2021-05-11T04:13:54Z INFO  relayer::valset_relaying] We have detected latest valset 10 but latest on Ethereum is 0 This valset is estimated to cost 1000000000 Gas / 0.0001 ETH to submit
+[2021-05-11T04:13:54Z INFO  ethereum_gravity::valset_update] Ordering signatures and submitting validator set 0 -> 10 update to Ethereum
+[2021-05-11T04:13:54Z INFO  ethereum_gravity::valset_update] Sent valset update with txid 0xd9549f99208a4cfb2282765d0f9c46b84683fed80e18291131be8747159d8307
+[2021-05-11T04:14:04Z INFO  ethereum_gravity::valset_update] Successfully updated Valset with new Nonce 10
+[2021-05-11T04:14:37Z ERROR orchestrator::main_loop] Failed to get events for block range, Check your Eth node and Cosmos gRPC CosmosGrpcError(TransactionFailed { tx: TxResponse { height: 0, txhash: "E0FE415B4287D121A96A2CB3B41BDAECA243AD09A1A4B905438CFB3C26DE2A16", codespace: "sdk", code: 32, data: "", raw_log: "account sequence mismatch, expected 6, got 5: incorrect account sequence", logs: [], info: "", gas_wanted: 0, gas_used: 0, tx: None, timestamp: "" }, time: 60s })
+[2021-05-11T04:14:37Z INFO  orchestrator::ethereum_event_watcher] Oracle observed Valset update with nonce 0 and event nonce 1
+[2021-05-11T04:14:37Z INFO  orchestrator::ethereum_event_watcher] Oracle observed ERC20 deployment with denom stake erc20 name mstake and symbol mstake and event nonce 3
+[2021-05-11T04:14:39Z INFO  orchestrator::ethereum_event_watcher] Claims processed, new nonce 3
+[2021-05-11T04:14:42Z INFO  orchestrator::main_loop] Sending batch confirm for 0x5b9936685081C4C63B51DC51ae5EAC05e3736659:1 with 1 in fees
+[2021-05-11T04:14:45Z INFO  relayer::batch_relaying] We have detected latest batch 1 but latest on Ethereum is 0 This batch is estimated to cost 1000000000 Gas / 0.0001 ETH to submit
+[2021-05-11T04:14:45Z INFO  ethereum_gravity::submit_batch] Ordering signatures and submitting TransactionBatch 0x5b9936685081C4C63B51DC51ae5EAC05e3736659:1 to Ethereum
+[2021-05-11T04:14:45Z INFO  ethereum_gravity::submit_batch] Sent batch update with txid 0x72fc9baf8eaef7b234f98a28b2239d8308bf4be8c55452863dd4e6e786effa71
+[2021-05-11T04:14:49Z INFO  ethereum_gravity::submit_batch] Successfully updated Batch with new Nonce 1
+[2021-05-11T04:14:50Z WARN  orchestrator::main_loop] Could not contact Cosmos grpc, trying again
+[2021-05-11T04:14:53Z WARN  orchestrator::main_loop] Could not contact Cosmos grpc, trying again
+[2021-05-11T04:14:55Z WARN  orchestrator::main_loop] Could not contact Cosmos grpc, trying again
+[2021-05-11T04:14:58Z WARN  orchestrator::main_loop] Could not contact Cosmos grpc, trying again
+[2021-05-11T04:15:00Z WARN  orchestrator::main_loop] Could not contact Cosmos grpc, trying again
