@@ -1,5 +1,5 @@
  - install starport.
- - download orchestrator and client from the releases
+ - download `orchestrator` and `client` binaries from the releases.
  - go into scripts/cosmos-gravity-bridge/solidity and setup hardhat as follows:
  ```
    - npm init
