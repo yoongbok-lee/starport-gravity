@@ -1,4 +1,7 @@
  - install starport.
+ ```
+ curl https://get.starport.network/starport! | bash
+ ```
  - download `orchestrator` and `client` binaries from the releases.
  - go into scripts/cosmos-gravity-bridge/solidity and setup hardhat as follows:
  ```
