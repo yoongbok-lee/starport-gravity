@@ -1,8 +1,10 @@
- - install starport.
+ - install starport. (protoc as well)
  ```
  curl https://get.starport.network/starport! | bash
  ```
  - download `orchestrator` and `client` binaries from the releases.
+ - install Go and set any required environment variables like $(go env GOPATH)/bin to $PATH.
+ - install vue
  - go into scripts/cosmos-gravity-bridge/solidity and setup hardhat as follows:
  ```
    - npm init
