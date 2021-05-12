@@ -1,27 +1,11 @@
-# gravity UI
+# Monorepo for Starport front-end development
 
-This is the [vuejs](https://vuejs.org/) user interface to gravity.
+This monorepo contains packages to simplify frontend development (primarily using Vue 3) for Starport-launched chains.
 
-The vue.js framework for building your user interface helps with rapid app development. The framework provides UI components including a login and an HTML-based template.
+The included packages are:
 
-## Project setup
+* [@starport/client-js](https://github.com/tendermint/vue/tree/develop/packages/client-js)
+* [@starport/vuex](https://github.com/tendermint/vue/tree/develop/packages/vuex)
+* [@starport/vue](https://github.com/tendermint/vue/tree/develop/packages/vue)
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Browse the READMEs in each package for details.
