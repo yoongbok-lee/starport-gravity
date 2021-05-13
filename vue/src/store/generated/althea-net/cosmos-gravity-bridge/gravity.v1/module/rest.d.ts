@@ -545,16 +545,6 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     /**
      * No description
      *
-     * @tags Query
-     * @name QueryCosmosToEthAll
-     * @request GET:/gravity/v1/cosmosToEth
-     */
-    queryCosmosToEthAll: (query?: {
-        senderAddress?: string;
-    }, params?: RequestParams) => Promise<HttpResponse<V1QueryPendingSendToEthResponse, RpcStatus>>;
-    /**
-     * No description
-     *
      * @tags Msg
      * @name MsgDepositClaim
      * @request POST:/gravity/v1/deposit_claim
@@ -576,14 +566,6 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
      * @request POST:/gravity/v1/logic_call_executed_claim
      */
     msgLogicCallExecutedClaim: (params?: RequestParams) => Promise<HttpResponse<object, RpcStatus>>;
-    /**
-     * No description
-     *
-     * @tags Query
-     * @name QueryOrchestratorAddressAll
-     * @request GET:/gravity/v1/orchestratorAddress
-     */
-    queryOrchestratorAddressAll: (params?: RequestParams) => Promise<HttpResponse<V1QueryCurrentValsetResponse, RpcStatus>>;
     /**
      * No description
      *

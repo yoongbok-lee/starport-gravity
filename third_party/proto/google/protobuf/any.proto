@@ -34,8 +34,8 @@ package google.protobuf;
 
 import "gogoproto/gogo.proto";
 
+option go_package = "google.golang.org/genproto/googleapis/protobuf/any";
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
-option go_package = "types";
 option java_package = "com.google.protobuf";
 option java_outer_classname = "AnyProto";
 option java_multiple_files = true;

@@ -1,8 +1,6 @@
 accounts:
   - name: alice
     coins: ["1000000000000000000000stake"]
-  - name: bob
-    coins: ["500000000000000stake"]
 validator:
   name: alice
   staked: "100000000stake"
@@ -12,7 +10,7 @@ client:
 build:
   binary: "gravity"
 faucet:
-  name: bob 
+  name: alice
   coins: ["50000000stake"]
 genesis:
   app_state:

@@ -83,12 +83,6 @@ service Query {
   rpc GetPendingSendToEth(QueryPendingSendToEth) returns (QueryPendingSendToEthResponse) {
     option (google.api.http).get = "/gravity/v1beta/query_pending_send_to_eth";
   }
-  rpc OrchestratorAddressAll(QueryAllOrchestratorAddress) returns (QueryCurrentValsetResponse){
-    option (google.api.http).get = "/gravity/v1/orchestratorAddress";
-  }
-  rpc CosmosToEthAll(QueryAllCosmosToEth) returns (QueryPendingSendToEthResponse) {
-    option (google.api.http).get = "/gravity/v1/cosmosToEth";
-  }
 }
 
 message QueryParamsRequest {}

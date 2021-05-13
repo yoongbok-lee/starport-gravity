@@ -784,22 +784,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   /**
    * No description
    *
-   * @tags Query
-   * @name QueryCosmosToEthAll
-   * @request GET:/gravity/v1/cosmosToEth
-   */
-  queryCosmosToEthAll = (query?: { senderAddress?: string }, params: RequestParams = {}) =>
-    this.request<V1QueryPendingSendToEthResponse, RpcStatus>({
-      path: `/gravity/v1/cosmosToEth`,
-      method: "GET",
-      query: query,
-      format: "json",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
    * @tags Msg
    * @name MsgDepositClaim
    * @request POST:/gravity/v1/deposit_claim
@@ -838,21 +822,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     this.request<V1MsgLogicCallExecutedClaimResponse, RpcStatus>({
       path: `/gravity/v1/logic_call_executed_claim`,
       method: "POST",
-      format: "json",
-      ...params,
-    });
-
-  /**
-   * No description
-   *
-   * @tags Query
-   * @name QueryOrchestratorAddressAll
-   * @request GET:/gravity/v1/orchestratorAddress
-   */
-  queryOrchestratorAddressAll = (params: RequestParams = {}) =>
-    this.request<V1QueryCurrentValsetResponse, RpcStatus>({
-      path: `/gravity/v1/orchestratorAddress`,
-      method: "GET",
       format: "json",
       ...params,
     });

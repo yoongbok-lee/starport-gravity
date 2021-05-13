@@ -3,8 +3,6 @@ package gravity.v1;
 
 option go_package = "github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types";
 
-import "gogoproto/gogo.proto";
-
 message OrchestratorAddress {
   string validator = 3; 
   string orchestrator = 4; 

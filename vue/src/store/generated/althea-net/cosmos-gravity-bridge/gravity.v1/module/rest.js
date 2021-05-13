@@ -178,20 +178,6 @@ export class Api extends HttpClient {
         /**
          * No description
          *
-         * @tags Query
-         * @name QueryCosmosToEthAll
-         * @request GET:/gravity/v1/cosmosToEth
-         */
-        this.queryCosmosToEthAll = (query, params = {}) => this.request({
-            path: `/gravity/v1/cosmosToEth`,
-            method: "GET",
-            query: query,
-            format: "json",
-            ...params,
-        });
-        /**
-         * No description
-         *
          * @tags Msg
          * @name MsgDepositClaim
          * @request POST:/gravity/v1/deposit_claim
@@ -225,19 +211,6 @@ export class Api extends HttpClient {
         this.msgLogicCallExecutedClaim = (params = {}) => this.request({
             path: `/gravity/v1/logic_call_executed_claim`,
             method: "POST",
-            format: "json",
-            ...params,
-        });
-        /**
-         * No description
-         *
-         * @tags Query
-         * @name QueryOrchestratorAddressAll
-         * @request GET:/gravity/v1/orchestratorAddress
-         */
-        this.queryOrchestratorAddressAll = (params = {}) => this.request({
-            path: `/gravity/v1/orchestratorAddress`,
-            method: "GET",
             format: "json",
             ...params,
         });

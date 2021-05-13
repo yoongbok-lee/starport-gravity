@@ -493,8 +493,6 @@ export interface Query {
     GetDelegateKeyByEth(request: QueryDelegateKeysByEthAddress): Promise<QueryDelegateKeysByEthAddressResponse>;
     GetDelegateKeyByOrchestrator(request: QueryDelegateKeysByOrchestratorAddress): Promise<QueryDelegateKeysByOrchestratorAddressResponse>;
     GetPendingSendToEth(request: QueryPendingSendToEth): Promise<QueryPendingSendToEthResponse>;
-    OrchestratorAddressAll(request: QueryAllOrchestratorAddress): Promise<QueryCurrentValsetResponse>;
-    CosmosToEthAll(request: QueryAllCosmosToEth): Promise<QueryPendingSendToEthResponse>;
 }
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
@@ -521,8 +519,6 @@ export declare class QueryClientImpl implements Query {
     GetDelegateKeyByEth(request: QueryDelegateKeysByEthAddress): Promise<QueryDelegateKeysByEthAddressResponse>;
     GetDelegateKeyByOrchestrator(request: QueryDelegateKeysByOrchestratorAddress): Promise<QueryDelegateKeysByOrchestratorAddressResponse>;
     GetPendingSendToEth(request: QueryPendingSendToEth): Promise<QueryPendingSendToEthResponse>;
-    OrchestratorAddressAll(request: QueryAllOrchestratorAddress): Promise<QueryCurrentValsetResponse>;
-    CosmosToEthAll(request: QueryAllCosmosToEth): Promise<QueryPendingSendToEthResponse>;
 }
 interface Rpc {
     request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;

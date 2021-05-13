@@ -3,8 +3,6 @@ package gravity.v1;
 
 option go_package = "github.com/althea-net/cosmos-gravity-bridge/gravity/x/gravity/types";
 
-import "gogoproto/gogo.proto";
-
 message CosmosToEth {
   string sender = 3; 
   string ethDest = 4; 

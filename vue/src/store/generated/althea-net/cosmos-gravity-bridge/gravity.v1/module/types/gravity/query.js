@@ -2900,16 +2900,6 @@ export class QueryClientImpl {
         const promise = this.rpc.request("gravity.v1.Query", "GetPendingSendToEth", data);
         return promise.then((data) => QueryPendingSendToEthResponse.decode(new Reader(data)));
     }
-    OrchestratorAddressAll(request) {
-        const data = QueryAllOrchestratorAddress.encode(request).finish();
-        const promise = this.rpc.request("gravity.v1.Query", "OrchestratorAddressAll", data);
-        return promise.then((data) => QueryCurrentValsetResponse.decode(new Reader(data)));
-    }
-    CosmosToEthAll(request) {
-        const data = QueryAllCosmosToEth.encode(request).finish();
-        const promise = this.rpc.request("gravity.v1.Query", "CosmosToEthAll", data);
-        return promise.then((data) => QueryPendingSendToEthResponse.decode(new Reader(data)));
-    }
 }
 var globalThis = (() => {
     if (typeof globalThis !== "undefined")
