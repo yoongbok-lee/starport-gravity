@@ -2,11 +2,11 @@
 # We use lopsided/archlinux for comptability
 
 FROM lopsided/archlinux
-COPY . .
-
+COPY ./ /usr/app/
+WORKDIR /usr/app/
 RUN pacman -Syyu --noconfirm npm
+RUN ls /usr/app/
 RUN npm install
-RUN npm run build
 
 EXPOSE 8080
 CMD ["/usr/bin/npm","run","serve"]

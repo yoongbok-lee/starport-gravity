@@ -1,0 +1,177 @@
+INFO [05-11|22:17:52.164] Starting Geth on Rinkeby testnet... 
+INFO [05-11|22:17:52.164] Dropping default light client cache      provided=1024 updated=128
+INFO [05-11|22:17:52.168] Maximum peer count                       ETH=0 LES=10 total=50
+INFO [05-11|22:17:52.168] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+INFO [05-11|22:17:52.168] Set global gas cap                       cap=25,000,000
+INFO [05-11|22:17:52.169] Allocated cache and file handles         database=/home/ylee/.ethereum/rinkeby/geth/lightchaindata cache=64.00MiB handles=524,288
+INFO [05-11|22:17:52.201] Allocated cache and file handles         database=/home/ylee/.ethereum/rinkeby/geth/les.client cache=16.00MiB handles=16
+INFO [05-11|22:17:52.240] Persisted trie from memory database      nodes=355 size=50.43KiB time="628.065µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [05-11|22:17:52.240] Initialised chain configuration          config="{ChainID: 4 Homestead: 1 DAO: <nil> DAOSupport: true EIP150: 2 EIP155: 3 EIP158: 3 Byzantium: 1035301 Constantinople: 3660663 Petersburg: 4321234 Istanbul: 5435345, Muir Glacier: <nil>, Berlin: 8290928, YOLO v3: <nil>, Engine: clique}"
+INFO [05-11|22:17:52.241] Added trusted checkpoint                 block=8,355,839 hash=0cba01..51dd10
+INFO [05-11|22:17:52.241] Loaded most recent local header          number=8,569,228 hash=4eaac4..3db02a td=14,731,487 age=3h24m59s
+INFO [05-11|22:17:52.242] Configured checkpoint oracle             address=0xebe8eFA441B9302A0d7eaECc277c09d20D684540 signers=4 threshold=2
+WARN [05-11|22:17:52.242] Unclean shutdown detected                booted=2021-05-04T02:28:27-0400 age=1w19h49m
+WARN [05-11|22:17:52.242] Unclean shutdown detected                booted=2021-05-06T09:08:06-0400 age=5d13h9m
+WARN [05-11|22:17:52.242] Unclean shutdown detected                booted=2021-05-07T05:55:33-0400 age=4d16h22m
+WARN [05-11|22:17:52.242] Unclean shutdown detected                booted=2021-05-10T08:23:29-0400 age=1d13h54m
+INFO [05-11|22:17:52.242] Starting peer-to-peer node               instance=Geth/v1.10.3-stable-991384a7/linux-amd64/go1.16.3
+INFO [05-11|22:17:52.281] New local node record                    seq=58 id=2f797452cb87765a ip=74.71.4.182 udp=30303 tcp=30303
+INFO [05-11|22:17:52.282] Started P2P networking                   self=enode://bf41b8839d3b2c48ee5a9acdc32f8955afb156373c9b49452958ddfa159e0b26c5710999b2a3d5250427f31c57dbf8fcc4dfeda4f97d958a87365f55a363c26c@74.71.4.182:30303
+INFO [05-11|22:17:52.282] IPC endpoint opened                      url=/home/ylee/.ethereum/rinkeby/geth.ipc
+INFO [05-11|22:17:52.282] HTTP server started                      endpoint=127.0.0.1:8545 prefix= cors= vhosts=localhost
+WARN [05-11|22:17:52.282] Light client mode is an experimental feature 
+INFO [05-11|22:17:52.291] Mapped network port                      proto=tcp extport=30303 intport=30303 interface=NAT-PMP(192.168.50.1)
+INFO [05-11|22:17:52.299] Mapped network port                      proto=udp extport=30303 intport=30303 interface=NAT-PMP(192.168.50.1)
+INFO [05-11|22:17:52.854] Block synchronisation started 
+INFO [05-11|22:17:55.617] Imported new block headers               count=192 elapsed=47.238ms number=8,569,420 hash=12ba93..0ae067 age=2h36m59s
+INFO [05-11|22:17:55.838] Imported new block headers               count=384 elapsed=52.302ms number=8,569,804 hash=6fd5e1..3021d0 age=1h57s
+INFO [05-11|22:17:55.856] Imported new block headers               count=192 elapsed=18.087ms number=8,569,996 hash=015537..9eedf7 age=12m55s
+INFO [05-11|22:17:59.143] Imported new block headers               count=49  elapsed=20.002ms number=8,570,045 hash=decc67..44c1e0
+INFO [05-11|22:17:59.238] Imported new block headers               count=2   elapsed="420.449µs" number=8,570,047 hash=a38c73..a4e241
+INFO [05-11|22:18:02.091] Imported new block headers               count=1   elapsed="265.011µs" number=8,570,048 hash=1fa828..3c5f88
+INFO [05-11|22:18:16.214] Imported new block headers               count=1   elapsed="120.698µs" number=8,570,049 hash=8d1e29..a153d3
+INFO [05-11|22:18:31.524] Imported new block headers               count=1   elapsed="887.27µs"  number=8,570,050 hash=f919ee..811b6b
+INFO [05-11|22:18:46.784] Imported new block headers               count=1   elapsed="159.465µs" number=8,570,051 hash=9190b5..d279a5
+INFO [05-11|22:19:02.362] Imported new block headers               count=1   elapsed="131.038µs" number=8,570,052 hash=aface6..cd491f
+INFO [05-11|22:19:16.714] Imported new block headers               count=1   elapsed="134.915µs" number=8,570,053 hash=7e4f0f..7165dd
+INFO [05-11|22:19:31.961] Imported new block headers               count=1   elapsed="138.462µs" number=8,570,054 hash=714e6c..f92778
+INFO [05-11|22:19:47.289] Imported new block headers               count=1   elapsed="210.689µs" number=8,570,055 hash=20b3f5..2540d6
+INFO [05-11|22:20:01.218] Imported new block headers               count=1   elapsed="306.882µs" number=8,570,056 hash=1ff996..b83f71
+INFO [05-11|22:20:16.723] Imported new block headers               count=1   elapsed="405.55µs"  number=8,570,057 hash=a5546d..1a8489
+INFO [05-11|22:20:31.178] Imported new block headers               count=1   elapsed="78.435µs"  number=8,570,058 hash=0a24e6..4a50f3
+INFO [05-11|22:20:46.259] Imported new block headers               count=1   elapsed="242.519µs" number=8,570,059 hash=a75d90..933bfb
+INFO [05-11|22:21:01.283] Imported new block headers               count=1   elapsed="328.078µs" number=8,570,060 hash=0644d4..cb64a9
+INFO [05-11|22:21:16.327] Imported new block headers               count=1   elapsed="405.749µs" number=8,570,061 hash=779782..e3d834
+INFO [05-11|22:21:31.392] Imported new block headers               count=1   elapsed="149.324µs" number=8,570,062 hash=a81e19..60c94f
+INFO [05-11|22:21:46.215] Imported new block headers               count=1   elapsed="180.829µs" number=8,570,063 hash=1de5c0..4335ef
+INFO [05-11|22:22:02.681] Imported new block headers               count=1   elapsed="147.587µs" number=8,570,064 hash=957c57..67a8a5
+INFO [05-11|22:22:16.393] Imported new block headers               count=1   elapsed="295.038µs" number=8,570,065 hash=498b3b..3aaa0a
+INFO [05-11|22:22:31.241] Imported new block headers               count=1   elapsed="107.831µs" number=8,570,066 hash=00c1a2..64b31d
+INFO [05-11|22:22:46.713] Imported new block headers               count=1   elapsed="138.12µs"  number=8,570,067 hash=697711..fc6ef2
+INFO [05-11|22:22:46.787] Imported new block headers               count=1   elapsed="114.527µs" number=8,570,067 hash=10443d..c27122
+INFO [05-11|22:23:02.898] Imported new block headers               count=1   elapsed="304.03µs"  number=8,570,068 hash=bd2054..c08ba6
+INFO [05-11|22:23:16.449] Imported new block headers               count=1   elapsed="155.812µs" number=8,570,069 hash=5138e3..3cf8e0
+INFO [05-11|22:23:32.578] Imported new block headers               count=1   elapsed="129.402µs" number=8,570,070 hash=9def27..3c9e92
+INFO [05-11|22:23:46.250] Imported new block headers               count=1   elapsed="179.781µs" number=8,570,071 hash=700bef..7f2317
+INFO [05-11|22:24:01.184] Imported new block headers               count=1   elapsed="193.995µs" number=8,570,072 hash=de7237..d4f325
+INFO [05-11|22:24:17.203] Imported new block headers               count=1   elapsed="202.273µs" number=8,570,073 hash=aa1e69..cb386b
+INFO [05-11|22:24:31.259] Imported new block headers               count=1   elapsed="115.144µs" number=8,570,074 hash=dc1079..42bf77
+INFO [05-11|22:24:46.379] Imported new block headers               count=1   elapsed="80.87µs"   number=8,570,075 hash=fa7c3c..51cd98
+INFO [05-11|22:25:02.566] Imported new block headers               count=1   elapsed="538.3µs"   number=8,570,076 hash=8fa97a..ecf3ad
+INFO [05-11|22:25:17.401] Imported new block headers               count=1   elapsed="310.798µs" number=8,570,077 hash=899bd6..6f8400
+INFO [05-11|22:25:17.509] Imported new block headers               count=1   elapsed="337.077µs" number=8,570,077 hash=38de16..640c61
+INFO [05-11|22:25:31.506] Imported new block headers               count=1   elapsed="375.141µs" number=8,570,078 hash=4622cb..8985d2
+INFO [05-11|22:25:31.896] Imported new block headers               count=0   elapsed="45.328µs"  number=8,570,078 hash=4622cb..8985d2 ignored=1
+INFO [05-11|22:25:46.182] Imported new block headers               count=1   elapsed="512.243µs" number=8,570,079 hash=f9b530..dfb0ba
+INFO [05-11|22:26:01.263] Imported new block headers               count=1   elapsed="365.327µs" number=8,570,080 hash=f6f1a8..c9e661
+INFO [05-11|22:26:16.957] Imported new block headers               count=1   elapsed="177.017µs" number=8,570,081 hash=b16b25..ada5bc
+INFO [05-11|22:26:31.204] Imported new block headers               count=1   elapsed="414.391µs" number=8,570,082 hash=aafb3c..61fb5d
+INFO [05-11|22:26:47.041] Imported new block headers               count=1   elapsed="359.979µs" number=8,570,083 hash=2ca3db..62af4c
+INFO [05-11|22:27:01.301] Imported new block headers               count=1   elapsed="146.625µs" number=8,570,084 hash=592415..28a2d5
+INFO [05-11|22:27:16.945] Imported new block headers               count=1   elapsed="463.967µs" number=8,570,085 hash=456a02..5e490d
+INFO [05-11|22:27:31.386] Imported new block headers               count=1   elapsed="251.665µs" number=8,570,086 hash=c577d4..74d9a8
+INFO [05-11|22:27:46.325] Imported new block headers               count=1   elapsed="484.618µs" number=8,570,087 hash=fc63c5..8d0070
+INFO [05-11|22:28:01.338] Imported new block headers               count=1   elapsed="332.798µs" number=8,570,088 hash=596963..d6d81d
+INFO [05-11|22:28:16.694] Imported new block headers               count=1   elapsed="180.296µs" number=8,570,089 hash=72dbd1..a7ff3b
+INFO [05-11|22:28:31.182] Imported new block headers               count=1   elapsed="296.733µs" number=8,570,090 hash=99d62a..78fb24
+INFO [05-11|22:28:46.451] Imported new block headers               count=1   elapsed="399.604µs" number=8,570,091 hash=f32294..c39922
+INFO [05-11|22:29:02.327] Imported new block headers               count=1   elapsed="112.657µs" number=8,570,092 hash=f7d5cd..9433a3
+INFO [05-11|22:29:18.849] Imported new block headers               count=1   elapsed="290.372µs" number=8,570,093 hash=2bfa92..6f4797
+INFO [05-11|22:29:32.303] Imported new block headers               count=1   elapsed="302.161µs" number=8,570,094 hash=86b3d1..c120a0
+INFO [05-11|22:29:48.514] Imported new block headers               count=1   elapsed="299.111µs" number=8,570,095 hash=14797d..43d4bd
+INFO [05-11|22:30:03.432] Imported new block headers               count=1   elapsed="319.28µs"  number=8,570,096 hash=7904fe..80b7da
+INFO [05-11|22:30:17.298] Imported new block headers               count=1   elapsed="313.53µs"  number=8,570,097 hash=f00bde..01db0f
+INFO [05-11|22:30:32.288] Imported new block headers               count=1   elapsed="309.082µs" number=8,570,098 hash=77d8a4..8fe9b3
+INFO [05-11|22:30:47.576] Imported new block headers               count=1   elapsed="312.16µs"  number=8,570,099 hash=64f8b4..4aaaa5
+INFO [05-11|22:31:03.345] Imported new block headers               count=1   elapsed="184.395µs" number=8,570,100 hash=ee2a62..54f738
+INFO [05-11|22:31:17.928] Imported new block headers               count=1   elapsed="102.704µs" number=8,570,101 hash=8cc3b7..4ca8c3
+INFO [05-11|22:31:32.433] Imported new block headers               count=1   elapsed="136.427µs" number=8,570,102 hash=eacdfc..993314
+INFO [05-11|22:31:48.012] Imported new block headers               count=1   elapsed="300.42µs"  number=8,570,103 hash=9b6f79..836106
+INFO [05-11|22:32:03.162] Imported new block headers               count=1   elapsed="81.099µs"  number=8,570,104 hash=f37ca2..761256
+INFO [05-11|22:32:17.660] Imported new block headers               count=1   elapsed="344.707µs" number=8,570,105 hash=64030f..61fd9b
+INFO [05-11|22:32:32.681] Imported new block headers               count=1   elapsed="72.49µs"   number=8,570,106 hash=4e943f..062e11
+INFO [05-11|22:32:48.545] Imported new block headers               count=1   elapsed="84.66µs"   number=8,570,107 hash=6ea9eb..fb0754
+INFO [05-11|22:33:02.711] Imported new block headers               count=2   elapsed=1.642ms     number=8,570,108 hash=f45328..f79b27 ignored=1
+INFO [05-11|22:33:17.317] Imported new block headers               count=1   elapsed="118.514µs" number=8,570,109 hash=b6677e..d8ec03
+INFO [05-11|22:33:32.237] Imported new block headers               count=1   elapsed="161.983µs" number=8,570,110 hash=e1dfe2..d5b5fe
+INFO [05-11|22:33:48.094] Imported new block headers               count=1   elapsed="175.468µs" number=8,570,111 hash=d0eea4..7d69de
+INFO [05-11|22:34:02.299] Imported new block headers               count=1   elapsed="242.276µs" number=8,570,112 hash=20b8e6..ccabdd
+INFO [05-11|22:34:17.753] Imported new block headers               count=1   elapsed="84.142µs"  number=8,570,113 hash=fe2c17..e98e26
+INFO [05-11|22:34:32.354] Imported new block headers               count=1   elapsed="191.982µs" number=8,570,114 hash=8f44db..c4b7a7
+INFO [05-11|22:34:47.331] Imported new block headers               count=1   elapsed="75.446µs"  number=8,570,115 hash=4946e6..98b49e
+INFO [05-11|22:35:02.420] Imported new block headers               count=1   elapsed="357.161µs" number=8,570,116 hash=99579b..9bdffa
+INFO [05-11|22:35:17.824] Imported new block headers               count=1   elapsed="578.359µs" number=8,570,117 hash=b7f0d4..73597d
+INFO [05-11|22:35:32.329] Imported new block headers               count=1   elapsed="75.94µs"   number=8,570,118 hash=131b4c..5fe8c6
+INFO [05-11|22:35:47.597] Imported new block headers               count=1   elapsed="76.57µs"   number=8,570,119 hash=f43400..f182e8
+INFO [05-11|22:36:02.616] Imported new block headers               count=1   elapsed="281.056µs" number=8,570,120 hash=d5c420..d4c030
+INFO [05-11|22:36:18.250] Imported new block headers               count=1   elapsed="364.007µs" number=8,570,121 hash=d2f4f3..7ccaf7
+INFO [05-11|22:36:32.881] Imported new block headers               count=1   elapsed="74.786µs"  number=8,570,122 hash=4e4ed4..766773
+INFO [05-11|22:36:48.484] Imported new block headers               count=1   elapsed="81.744µs"  number=8,570,123 hash=fb13ed..1c5920
+INFO [05-11|22:37:02.761] Imported new block headers               count=1   elapsed="216.994µs" number=8,570,124 hash=aeb16c..5ebecc
+INFO [05-11|22:37:17.470] Imported new block headers               count=1   elapsed="307.801µs" number=8,570,125 hash=1c739b..fb2647
+INFO [05-11|22:37:32.244] Imported new block headers               count=1   elapsed="81.467µs"  number=8,570,126 hash=f6983d..b35d9a
+INFO [05-11|22:37:47.483] Imported new block headers               count=1   elapsed="293.912µs" number=8,570,127 hash=ffd6d2..63773f
+INFO [05-11|22:38:02.177] Imported new block headers               count=1   elapsed="319.87µs"  number=8,570,128 hash=8eb835..f0b51e
+INFO [05-11|22:38:17.886] Imported new block headers               count=1   elapsed="76.434µs"  number=8,570,129 hash=4b3a46..8e4321
+INFO [05-11|22:38:32.264] Imported new block headers               count=1   elapsed="90.65µs"   number=8,570,130 hash=9e342a..7baf61
+INFO [05-11|22:38:47.424] Imported new block headers               count=1   elapsed="82.469µs"  number=8,570,131 hash=88a846..998b99
+INFO [05-11|22:39:02.343] Imported new block headers               count=1   elapsed="249.251µs" number=8,570,132 hash=426029..bee848
+INFO [05-11|22:39:17.320] Imported new block headers               count=1   elapsed="279.014µs" number=8,570,133 hash=14122f..d9cdbe
+INFO [05-11|22:39:32.465] Imported new block headers               count=1   elapsed="256.979µs" number=8,570,134 hash=838f5c..4479af
+INFO [05-11|22:39:47.173] Imported new block headers               count=1   elapsed="449.101µs" number=8,570,135 hash=64029b..83992f
+INFO [05-11|22:40:02.622] Imported new block headers               count=1   elapsed="89.819µs"  number=8,570,136 hash=056a0f..8681dd
+INFO [05-11|22:40:03.260] Imported new block headers               count=1   elapsed="790.304µs" number=8,570,136 hash=2a2c40..e456cc
+INFO [05-11|22:40:18.313] Imported new block headers               count=1   elapsed="414.318µs" number=8,570,137 hash=1f2918..7e6795
+INFO [05-11|22:40:33.200] Imported new block headers               count=2   elapsed=7.827ms     number=8,570,138 hash=af29f5..1a4d27 ignored=1
+INFO [05-11|22:40:47.370] Imported new block headers               count=1   elapsed="346.438µs" number=8,570,139 hash=e0ee8c..a30845
+INFO [05-11|22:41:03.258] Imported new block headers               count=1   elapsed="345.963µs" number=8,570,140 hash=c8e5c0..dd66cb
+INFO [05-11|22:41:17.314] Imported new block headers               count=1   elapsed="86.901µs"  number=8,570,141 hash=b5607c..becf74
+INFO [05-11|22:41:33.112] Imported new block headers               count=1   elapsed="77.299µs"  number=8,570,142 hash=e382f1..1ab00f
+INFO [05-11|22:41:47.287] Imported new block headers               count=1   elapsed="310.982µs" number=8,570,143 hash=672538..f3e07b
+INFO [05-11|22:42:02.442] Imported new block headers               count=1   elapsed="128.484µs" number=8,570,144 hash=1bf5fe..25f108
+INFO [05-11|22:42:17.311] Imported new block headers               count=1   elapsed="92.445µs"  number=8,570,145 hash=e46e4a..d34658
+INFO [05-11|22:42:32.392] Imported new block headers               count=1   elapsed="78.368µs"  number=8,570,146 hash=87d503..d88eea
+INFO [05-11|22:42:47.258] Imported new block headers               count=1   elapsed="213.455µs" number=8,570,147 hash=9ba68c..3d50f7
+INFO [05-11|22:43:02.574] Imported new block headers               count=1   elapsed="86.816µs"  number=8,570,148 hash=48a98b..166c42
+INFO [05-11|22:43:17.164] Imported new block headers               count=1   elapsed="192.105µs" number=8,570,149 hash=63da6a..243ca1
+INFO [05-11|22:43:32.225] Imported new block headers               count=1   elapsed="163.45µs"  number=8,570,150 hash=38029b..ca1ab2
+INFO [05-11|22:43:47.195] Imported new block headers               count=1   elapsed="178.587µs" number=8,570,151 hash=99ddce..3cd0e8
+INFO [05-11|22:44:02.243] Imported new block headers               count=1   elapsed="120.002µs" number=8,570,152 hash=796651..2ac0ad
+INFO [05-11|22:44:17.374] Imported new block headers               count=1   elapsed="70.209µs"  number=8,570,153 hash=a97485..b872ad
+INFO [05-11|22:44:32.269] Imported new block headers               count=1   elapsed="85.25µs"   number=8,570,154 hash=781241..763067
+INFO [05-11|22:44:47.682] Imported new block headers               count=1   elapsed="144.052µs" number=8,570,155 hash=0cb8bd..3379d6
+INFO [05-11|22:45:02.457] Imported new block headers               count=1   elapsed="135.766µs" number=8,570,156 hash=f25d4d..400db7
+INFO [05-11|22:45:17.242] Imported new block headers               count=1   elapsed="163.433µs" number=8,570,157 hash=df1247..787f0d
+INFO [05-11|22:45:33.180] Imported new block headers               count=1   elapsed="156.898µs" number=8,570,158 hash=1993db..389a08
+INFO [05-11|22:45:48.121] Imported new block headers               count=1   elapsed="115.284µs" number=8,570,159 hash=406013..f8c9e7
+INFO [05-11|22:46:02.885] Imported new block headers               count=2   elapsed="409.556µs" number=8,570,160 hash=906a12..6148da ignored=1
+INFO [05-11|22:46:19.185] Imported new block headers               count=1   elapsed="161.886µs" number=8,570,161 hash=210898..a1b232
+INFO [05-11|22:46:32.865] Imported new block headers               count=1   elapsed="113.238µs" number=8,570,162 hash=8e48de..b7da40
+INFO [05-11|22:46:47.908] Imported new block headers               count=1   elapsed="73.207µs"  number=8,570,163 hash=004d3f..c74047
+INFO [05-11|22:47:02.477] Imported new block headers               count=1   elapsed="259.485µs" number=8,570,164 hash=844f7c..5b670c
+INFO [05-11|22:47:17.431] Imported new block headers               count=1   elapsed="105.254µs" number=8,570,165 hash=5838c7..679526
+INFO [05-11|22:47:32.293] Imported new block headers               count=1   elapsed="262.089µs" number=8,570,166 hash=37b889..60ccf7
+INFO [05-11|22:47:48.416] Imported new block headers               count=1   elapsed="127.46µs"  number=8,570,167 hash=7014dc..67918d
+INFO [05-11|22:48:02.203] Imported new block headers               count=1   elapsed="248.077µs" number=8,570,168 hash=5cf610..868440
+INFO [05-11|22:48:17.678] Imported new block headers               count=1   elapsed="205.312µs" number=8,570,169 hash=870388..ec6433
+INFO [05-11|22:48:32.367] Imported new block headers               count=1   elapsed="165.438µs" number=8,570,170 hash=b6a2b5..4e8d30
+INFO [05-11|22:48:47.434] Imported new block headers               count=1   elapsed="166.522µs" number=8,570,171 hash=a0dbd7..e3d07b
+INFO [05-11|22:49:02.225] Imported new block headers               count=1   elapsed="85.853µs"  number=8,570,172 hash=d7aacf..40111a
+INFO [05-11|22:49:18.374] Imported new block headers               count=1   elapsed="92.396µs"  number=8,570,173 hash=587c77..bcb927
+INFO [05-11|22:49:32.707] Imported new block headers               count=1   elapsed="130.316µs" number=8,570,174 hash=41f3a3..65d02c
+INFO [05-11|22:49:47.193] Imported new block headers               count=1   elapsed="97.354µs"  number=8,570,175 hash=cd1410..2a1e2d
+INFO [05-11|22:50:03.851] Imported new block headers               count=1   elapsed="87.268µs"  number=8,570,176 hash=2075d2..8a9b56
+INFO [05-11|22:50:17.175] Imported new block headers               count=1   elapsed="180.685µs" number=8,570,177 hash=47160e..44d6df
+INFO [05-11|22:50:32.235] Imported new block headers               count=1   elapsed="164.238µs" number=8,570,178 hash=071a68..fca799
+INFO [05-11|22:50:47.822] Imported new block headers               count=1   elapsed="194.13µs"  number=8,570,179 hash=6662f1..b0c297
+INFO [05-11|22:51:02.394] Imported new block headers               count=1   elapsed="301.595µs" number=8,570,180 hash=5e3aad..2fa8d9
+INFO [05-11|22:51:18.587] Imported new block headers               count=2   elapsed="917.781µs" number=8,570,181 hash=5d0b13..2b229f ignored=1
+INFO [05-11|22:51:33.034] Imported new block headers               count=1   elapsed="95.045µs"  number=8,570,182 hash=1245ff..f02882
+INFO [05-11|22:51:33.112] Imported new block headers               count=1   elapsed="68.705µs"  number=8,570,182 hash=e3db7f..c616eb
+INFO [05-11|22:51:36.920] Got interrupt, shutting down... 
+INFO [05-11|22:51:36.922] HTTP server stopped                      endpoint=127.0.0.1:8545
+INFO [05-11|22:51:36.922] IPC endpoint closed                      url=/home/ylee/.ethereum/rinkeby/geth.ipc
+INFO [05-11|22:51:36.922] Blockchain stopped 
+INFO [05-11|22:51:36.923] Transaction pool stopped 
+INFO [05-11|22:51:36.923] Looking for peers                        peercount=2 tried=0 static=0
+INFO [05-11|22:51:36.924] Light ethereum stopped 
