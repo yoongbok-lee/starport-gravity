@@ -1,0 +1,5 @@
+scripts/
+contrib/
+.idea
+.vscode
+**/node_modules/**
