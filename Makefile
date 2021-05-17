@@ -66,6 +66,19 @@ lint:
 	@go mod verify
 
 ###############################################################################
+###                           Starport                                    ###
+###############################################################################
+starport-image:
+	@docker build . -f Dockerfile -t starport-gravity/starport
+
+orchestrator-image:
+	@docker build scripts/. -f scripts/Dockerfile -t starport-gravity/orchestrator
+
+starport: starport-image orchestrator-image
+	docker-compose up -d
+
+
+###############################################################################
 ###                           Protobuf                                    ###
 ###############################################################################
 
